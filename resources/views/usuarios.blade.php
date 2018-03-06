@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="panel panel-primary">
-    <div class="panel-heading">Nuevo Mensaje</div>
+    <div class="panel-heading">Dashboard</div>
 
     <div class="panel-body">
         @if (session('status'))
@@ -14,14 +14,8 @@
 
         <form action="" accept-charset="utf-8">
             <div class="form-group">
-                <label for="departamento">Gerencia</label>
-                <select name="departamento" class="form-control">
-                    <option value=""></option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="departamento">Departamento</label>
-                <select name="departamento" class="form-control">
+                <label for="nombre">Nombre</label>
+                <select name="nombre" class="form-control">
                     <option value=""></option>
                 </select>
             </div>

@@ -7,9 +7,17 @@
 		@if(auth()->check())
 
 			<ul class="nav nav-pills nav-stacked">
-				<li><a href="#">Nueva Comunicación</a></li>
-			  	<li><a href="#">Bandeja de Entrada</a></li>
-			  	<li><a href="#">Administrar</a></li>
+				<li><a href="/generar">Nueva Comunicación</a></li>
+			  	<li><a href="#">Comunicación en Ejecución</a></li>
+			  	<li><a href="#">Comunicación Finalizada</a></li>
+			  	<li>
+			  		<a class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" role="button">Administración</a>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					    <li><a href="#">Usuarios</a></li>
+					    <li><a href="#">Gerencias</a></li>
+					    <li><a href="#">Departamentos</a></li>
+					</ul>
+				</li>
 			</ul>
 
 		@else

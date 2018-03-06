@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/generar', 'HomeController@generate')->name('generar');
 
-Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function()
+Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
 {
     Route::get('/usuarios', 'UserController@index');
     Route::get('/gerencias', 'GerenciaController@index');
