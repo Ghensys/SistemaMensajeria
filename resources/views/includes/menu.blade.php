@@ -7,17 +7,22 @@
 		@if(auth()->check())
 
 			<ul class="nav nav-pills nav-stacked">
-				<li><a href="/generar">Nueva Comunicación</a></li>
-			  	<li><a href="#">Comunicación en Ejecución</a></li>
+				<li @if(request()->is('home')) class="active" @endif ><a href="/home">Dashboard</a></li>
+				<li @if(request()->is('nuevo_mensaje')) class="active" @endif ><a href="/nuevo_mensaje">Nueva Comunicación</a></li>
+			  	<li @if(request()->is('tarea')) class="active" @endif ><a href="#">Tareas</a></li>
 			  	<li><a href="#">Comunicación Finalizada</a></li>
-			  	<li>
-			  		<a class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" role="button">Administración</a>
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-					    <li><a href="#">Usuarios</a></li>
-					    <li><a href="#">Gerencias</a></li>
-					    <li><a href="#">Departamentos</a></li>
-					</ul>
-				</li>
+			  	
+			  	@if(auth()->user()->is_admin)
+				  	<li>
+				  		<a class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" role="button">Administración</a>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						    <li><a href="#">Usuarios</a></li>
+						    <li><a href="#">Gerencias</a></li>
+						    <li><a href="#">Departamentos</a></li>
+						</ul>
+					</li>
+			  	@endif
+
 			</ul>
 
 		@else

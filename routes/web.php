@@ -20,7 +20,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/generar', 'HomeController@generate')->name('generar');
+//Nueva Comunicacion METHODO GET
+Route::get('/nuevo_mensaje', 'HomeController@getNewCommunication')->name('nuevo_mensaje');
+
+//Nueva Comunicacion METHODO POST
+Route::post('/nuevo_mensaje', 'HomeController@postNewCommunication')->name('nuevo_mensaje');
 
 Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
 {
@@ -28,3 +32,5 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
     Route::get('/gerencias', 'GerenciaController@index');
     Route::get('/departamentos', 'DepartamentoController@index');
 });
+
+Route::resource('communication_receiver', 'CommunicationReceiverController@store');
