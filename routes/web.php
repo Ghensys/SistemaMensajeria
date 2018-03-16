@@ -34,3 +34,10 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
 });
 
 Route::resource('communication_receiver', 'CommunicationReceiverController@store');
+
+Route::get('dropdown', function()
+{
+	$id = Input::get('option');
+	$departments = Management::find($id)->Departaments;
+	return $departments->lists('department', 'id');
+});
