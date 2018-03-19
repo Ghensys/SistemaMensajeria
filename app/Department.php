@@ -6,8 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Department extends Model
 {
-    public function Managements()
-    {
-    	return $this->belongsTo('Management', 'management_id');
-    }
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+     protected $fillable = [
+        'description_department', 'management_id',
+    ];
 }

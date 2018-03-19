@@ -6,8 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Management extends Model
 {
-    public function Departaments()
-    {
-    	return $this->hasMany('Department');
-    }
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+     protected $fillable = [
+        'description_management',
+    ];
 }
