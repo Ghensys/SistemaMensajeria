@@ -14,4 +14,9 @@ class Department extends Model
      protected $fillable = [
         'description_department', 'management_id',
     ];
+
+    public static function SelectDepartments($id)
+    {
+    	return Department::where('management_id', $id)->get();
+    }
 }

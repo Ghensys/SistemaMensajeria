@@ -36,4 +36,7 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
 Route::resource('communication_receiver', 'CommunicationReceiverController@store');
 
 Route::get('GetManagements', 'ServiceController@GetManagements');
+
 Route::get('GetDeparments/{id}', 'ServiceController@GetDeparments');
+
+Route::get('dropdown/{id}','ServiceController@getDepartments');

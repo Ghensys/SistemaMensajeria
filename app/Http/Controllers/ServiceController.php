@@ -84,7 +84,7 @@ class ServiceController extends Controller
         //
     }
 
-    public function GetManagements()
+    /*public function GetManagements()
     {
         $managements = Management::all();
         $data = [];
@@ -99,27 +99,17 @@ class ServiceController extends Controller
                 'id'    => $value->id,
                 'text'  => $value->description_management,
             ];
+        }
 
         return response()->json($data);
-        }
-    }
+    }*/
 
-    public function GetDeparments($id)
+    public function getDepartments(Request $request, $id)
     {
-        $departments = Department::where('management_id',$id)->get();
-        $data[0] = [
-            'id'    => 0,
-            'text'  => 'Seleccione',
-        ];
-
-        foreach ($departments as $key => $value)
+        if ($request->ajax())
         {
-            $data[$key+1] = [
-                'id'    => $value->id,
-                'text'  => $value->description_department,
-            ];
+            $departments = Department::SelectDepartments($id);
+            return response()->json($departments);
         }
-
-        return response()->json($data);
     }
 }

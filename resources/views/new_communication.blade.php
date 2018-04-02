@@ -73,26 +73,7 @@
     </div>
 </div>
 
-<!--script type="text/javascript">
-    jQuery.noConflict();
+<!script src="js/jquery.min.js'"><!/script>
+<!script src="js/dropdown.js"><!/script>
 
-    //1
-    (
-        //2
-        function( $ )
-        {
-            //3
-            $('#select-gerencia').on('change', function(e)
-            {
-                console.log(e);
-                var gerencia = e.target.value;
-                $.get('/ajax-departamento?gerencia=' + gerencia, function(data)
-                {
-                    console.log(data);
-                }
-                );
-            });
-        });
-</script>
-<script src="{{ asset('js/register.js') }}"><!/script-->
 @endsection

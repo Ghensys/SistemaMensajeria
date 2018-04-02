@@ -68,8 +68,8 @@ class HomeController extends Controller
         $communication->content = $request->input('content');
         $communication->save();
 
-        $managements = Management::all();
-        $departments = Department::all();
+        $managements = Management::pluck('description_management', 'id');
+        $departments = Department::pluck('description_department', 'id');
 
         return view('communication_receiver')->with(compact('managements', 'departments', 'communication'));
 

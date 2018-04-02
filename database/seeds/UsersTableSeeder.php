@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
     	//Administrador
         User::create(array(
         	'name' => 'Admin',
-        	'email' => 'admin@conapdis.com',
+        	'email' => 'admin@conapdis.gob.ve',
         	'password' => bcrypt('123456'),
         	'role' => 0,
         	));
@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
         //Presidencia
         User::create(array(
         	'name' => 'Presidencia',
-        	'email' => 'presidencia@conapdis.com',
+        	'email' => 'presidencia@conapdis.gob.ve',
         	'password' => bcrypt('123456'),
         	'role' => 1,
         	));
@@ -35,7 +35,7 @@ class UsersTableSeeder extends Seeder
         //Gerencia
         User::create(array(
         	'name' => 'Gerente',
-        	'email' => 'gerente@conapdis.com',
+        	'email' => 'gerente@conapdis.gob.ve',
         	'password' => bcrypt('123456'),
         	'role' => 2,
         	));
@@ -43,7 +43,7 @@ class UsersTableSeeder extends Seeder
         //Coordinador
         User::create(array(
         	'name' => 'Coordinador',
-        	'email' => 'coordinador@conapdis.com',
+        	'email' => 'coordinador@conapdis.gob.ve',
         	'password' => bcrypt('123456'),
         	'role' => 3,
         	));
@@ -51,7 +51,7 @@ class UsersTableSeeder extends Seeder
         //Analista
         User::create(array(
         	'name' => 'Analista',
-        	'email' => 'analista@conapdis.com',
+        	'email' => 'analista@conapdis.gob.ve',
         	'password' => bcrypt('123456'),
         	'role' => 4,
         	));

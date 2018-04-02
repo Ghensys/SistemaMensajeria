@@ -16,28 +16,24 @@
         <form action="{{ url('communication_receiver') }}" method="post" accept-charset="utf-8">
 
             {{ csrf_field() }}
-            
-            <div class="form-group">
-                <label for="management">Gerencia</label>
-                <select name="management" class="form-control" id="select-gerencia">
-                    <option value="0">Seleccionar</option>
-                    @foreach($managements as $management)
-                        <option value="{{ $management->id }}">{{ $management->description_management }}</option>
-                    @endforeach
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="department">Departamento</label>
-                <select name="department" class="form-control" id="select-departamento">
-                    <option value="0">Seleccionar</option>
-                    @foreach($departments as $department)
-                        <option value="{{ $department->id }}">{{ $department->description_department }}</option>
-                    @endforeach
-                </select>
-            </div>
+           
+
+
+            {{ Form::select('management', $managements, null, ['id'=>'managements']) }}
+
+            {{ Form::select('department', $departments, null, ['id'=>'departments']) }}
+                
+
+
+
+
+
+
+
 
             <input type="text" name="communication_id" value="{{ $communication->id }}">
+            
+            
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Registrar</button>
@@ -47,8 +43,51 @@
     </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!script src="js/jquery.min.js'"><!/script>
+<!script src="js/dropdown.js"><!/script>
+
+<!--script src="jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#country').on('change',function(){
+        var countryID = $(this).val();
+        if(countryID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+                data:'country_id='+countryID,
+                success:function(html){
+                    $('#state').html(html);
+                    $('#city').html('<option value="">Select state first</option>'); 
+                }
+            }); 
+        }else{
+            $('#state').html('<option value="">Select country first</option>');
+            $('#city').html('<option value="">Select state first</option>'); 
+        }
+    });
+    
+    $('#state').on('change',function(){
+        var stateID = $(this).val();
+        if(stateID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+                data:'state_id='+stateID,
+                success:function(html){
+                    $('#city').html(html);
+                }
+            }); 
+        }else{
+            $('#city').html('<option value="">Select state first</option>'); 
+        }
+    });
+});
+</script-->
+
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script-->
 
 
 @endsection
