@@ -22,10 +22,6 @@
             {{ Form::select('management', $managements, null, ['id'=>'managements']) }}
 
             {{ Form::select('department', $departments, null, ['id'=>'departments']) }}
-                
-
-
-
 
 
 
