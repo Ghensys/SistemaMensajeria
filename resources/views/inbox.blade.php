@@ -13,7 +13,8 @@
         @endif
 
         	@foreach($communications as $comm)
-				{{ $comm }} 
+                {{ $comm }} /
+                
         	@endforeach
 
     </div>

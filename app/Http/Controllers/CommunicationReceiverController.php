@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\CommunicationReceiver;
 use App\Communication;
 use App\Http\Controllers\Auth;
+use App\User;
 
 class CommunicationReceiverController extends Controller
 {
@@ -65,7 +66,14 @@ class CommunicationReceiverController extends Controller
     {
         //$communication_receivers = CommunicationReceiver::where('to_id', Auth::user()->id);
         //$communication_receivers = CommunicationReceiver::all();
-        $communications = CommunicationReceiver::where('to_id', auth()->user()->id)->get();
+        $communications = CommunicationReceiver::with('communication', 'user', 'priority', 'status_communication')->where('user_id', auth()->user()->id)->get();
+
+        //$userr = $communications->communication['user_id'];
+        
+
+        //$users = User::where('id', $communications['user_id'])->get();
+        
+
         //$communication = Communication::where('id', $communication_receivers->communication_id)->get();
 
         //$communications = Communication::join('communication_receivers', 'communication_receivers.communication_id', '=', 'communications.id')->join('communication_receivers.from_id', '=', 'users.id')->join('communication_receivers.to_id', '=', 'users.id')->where('communication_receivers.to_id', auth()->user()->id)->select('communications.*')->get();

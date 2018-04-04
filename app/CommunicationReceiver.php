@@ -12,7 +12,7 @@ class CommunicationReceiver extends Model
      * @var array
      */
      protected $fillable = [
-        'communication_id', 'from_id', 'to_id', 'status_communication_id', 'read', 'priority_id', 'answer',
+        'communication_id', 'user_id', 'status_communication_id', 'read', 'priority_id', 'answer',
     ];
 
     public function status_communication()
