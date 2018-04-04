@@ -12,6 +12,11 @@ class Communication extends Model
      * @var array
      */
      protected $fillable = [
-        'communication_id', 'from_id', 'to_id', 'status_id',
+        'communication_type_id', 'user_id','created_by_id', 'title', 'content',
     ];
+
+    public function communication()
+    {
+    	return $this->hasMany('App\CommunicationReceiver');
+    }
 }

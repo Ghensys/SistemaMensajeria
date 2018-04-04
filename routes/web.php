@@ -20,6 +20,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/bandeja_entrada', 'CommunicationReceiverController@show')->name('bandeja_entrada');
+
 //Nueva Comunicacion METHODO GET
 Route::get('/nuevo_mensaje', 'HomeController@getNewCommunication')->name('nuevo_mensaje');
 

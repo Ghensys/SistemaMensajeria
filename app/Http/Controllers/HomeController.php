@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Management;
 use App\CommunicationType;
 use App\Communication;
+use App\CommunicationReceiver;
 use App\Http\Controllers\Auth;
+//use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -61,7 +63,7 @@ class HomeController extends Controller
 
         $communication = new Communication();
         $communication->communication_type_id = $request->input('communication_type');
-        $communication->created_by_id = auth()->user()->id;
+        $communication->user_id = auth()->user()->id;
         $communication->title = $request->input('title');
         $communication->content = $request->input('content');
         $communication->save();
@@ -72,4 +74,6 @@ class HomeController extends Controller
         return view('communication_receiver')->with(compact('managements', 'communication'));
 
     }
+
+    
 }

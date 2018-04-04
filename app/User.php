@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role',
+        'name', 'email', 'password', 'institution_id', 'management_id', 'department_id', 'role_id',
     ];
 
     /**
@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return User::where('department_id', $id)->get();
     }
+
+    /*public function communication_receivers()
+    {
+        return $this->belongsToMany('App\CommunicationReceiver');
+    }*/
 }

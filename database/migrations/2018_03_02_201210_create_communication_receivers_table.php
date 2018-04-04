@@ -17,12 +17,12 @@ class CreateCommunicationReceiversTable extends Migration
             $table->increments('id');
             $table->integer('communication_id')->unsigned();
             $table->foreign('communication_id')->references('id')->on('communications');
-            $table->integer('from_id')->unsigned();
-            $table->foreign('from_id')->references('id')->on('users');
-            $table->integer('to_id')->unsigned();
-            $table->foreign('to_id')->references('id')->on('users');
-            $table->integer('status_id')->unsigned();
-            $table->foreign('status_id')->references('id')->on('status_communications');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            //$table->integer('to_id')->unsigned();
+            //$table->foreign('to_id')->references('id')->on('users');
+            $table->integer('status_communication_id')->unsigned();
+            $table->foreign('status_communication_id')->references('id')->on('status_communications');
             $table->timestamp('read')->nullable();
             $table->integer('priority_id')->unsigned();
             $table->foreign('priority_id')->references('id')->on('priorities');
