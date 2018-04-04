@@ -21,7 +21,10 @@ class UsersTableSeeder extends Seeder
         	'name' => 'Admin',
         	'email' => 'admin@conapdis.gob.ve',
         	'password' => bcrypt('123456'),
-        	'role' => 0,
+            'institution_id' => '1',
+            'management_id' => '1',
+            'department_id' => '1',
+            'role_id' => 0,
         	));
 
         //Presidencia
@@ -29,7 +32,10 @@ class UsersTableSeeder extends Seeder
         	'name' => 'Presidencia',
         	'email' => 'presidencia@conapdis.gob.ve',
         	'password' => bcrypt('123456'),
-        	'role' => 1,
+            'institution_id' => '1',
+            'management_id' => '2',
+            'department_id' => '4',
+            'role_id' => 1,
         	));
 
         //Gerencia
@@ -37,7 +43,10 @@ class UsersTableSeeder extends Seeder
         	'name' => 'Gerente',
         	'email' => 'gerente@conapdis.gob.ve',
         	'password' => bcrypt('123456'),
-        	'role' => 2,
+            'institution_id' => '1',
+            'management_id' => '1',
+            'department_id' => '7',
+            'role_id' => 2,
         	));
 
         //Coordinador
@@ -45,7 +54,10 @@ class UsersTableSeeder extends Seeder
         	'name' => 'Coordinador',
         	'email' => 'coordinador@conapdis.gob.ve',
         	'password' => bcrypt('123456'),
-        	'role' => 3,
+            'institution_id' => '1',
+            'management_id' => '3',
+            'department_id' => '4',
+            'role_id' => 3,
         	));
 
         //Analista
@@ -53,7 +65,90 @@ class UsersTableSeeder extends Seeder
         	'name' => 'Analista',
         	'email' => 'analista@conapdis.gob.ve',
         	'password' => bcrypt('123456'),
-        	'role' => 4,
+            'institution_id' => '1',
+            'management_id' => '1',
+            'department_id' => '4',
+            'role_id' => 4,
         	));
+
+        User::create(array(
+            'name' => 'juan Perez Sistemas 1',
+            'email' => 'jperezs1@conapdis.gob.ve',
+            'password' => bcrypt('123456'),
+            'institution_id' => '1',
+            'management_id' => '1',
+            'department_id' => '1',
+            'role_id' => 4,
+            ));
+
+        User::create(array(
+            'name' => 'juan Perez Sistemas 2',
+            'email' => 'jperezs2@conapdis.gob.ve',
+            'password' => bcrypt('123456'),
+            'institution_id' => '1',
+            'management_id' => '1',
+            'department_id' => '1',
+            'role_id' => 4,
+            ));
+
+        User::create(array(
+            'name' => 'juan Perez Sistemas 3',
+            'email' => 'jperezs3@conapdis.gob.ve',
+            'password' => bcrypt('123456'),
+            'institution_id' => '1',
+            'management_id' => '1',
+            'department_id' => '1',
+            'role_id' => 4,
+            ));
+
+        User::create(array(
+            'name' => 'juan Perez Sistemas 4',
+            'email' => 'jperezs4@conapdis.gob.ve',
+            'password' => bcrypt('123456'),
+            'institution_id' => '1',
+            'management_id' => '1',
+            'department_id' => '1',
+            'role_id' => 4,
+            ));
+
+        User::create(array(
+            'name' => 'juan Perez Sistemas 5',
+            'email' => 'jperezs5@conapdis.gob.ve',
+            'password' => bcrypt('123456'),
+            'institution_id' => '1',
+            'management_id' => '1',
+            'department_id' => '1',
+            'role_id' => 4,
+            ));
+
+        User::create(array(
+            'name' => 'juan Perez Servidores 2',
+            'email' => 'jperezss2@conapdis.gob.ve',
+            'password' => bcrypt('123456'),
+            'institution_id' => '1',
+            'management_id' => '1',
+            'department_id' => '2',
+            'role_id' => 4,
+            ));
+
+        User::create(array(
+            'name' => 'juan Perez Servidores 3',
+            'email' => 'jperezss3@conapdis.gob.ve',
+            'password' => bcrypt('123456'),
+            'institution_id' => '1',
+            'management_id' => '1',
+            'department_id' => '2',
+            'role_id' => 4,
+            ));
+
+        User::create(array(
+            'name' => 'juan Perez Servidores 4',
+            'email' => 'jperezss4@conapdis.gob.ve',
+            'password' => bcrypt('123456'),
+            'institution_id' => '1',
+            'management_id' => '1',
+            'department_id' => '2',
+            'role_id' => 4,
+            ));
     }
 }

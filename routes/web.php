@@ -33,10 +33,11 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
     Route::get('/departamentos', 'DepartamentoController@index');
 });
 
-Route::resource('communication_receiver', 'CommunicationReceiverController@store');
+//Ruta para el Registro del Destinatario de la Comunicacion
+Route::post('communication_receiver', 'CommunicationReceiverController@store');
 
-Route::get('GetManagements', 'ServiceController@GetManagements');
-
-Route::get('GetDeparments/{id}', 'ServiceController@GetDeparments');
-
+//Ruta del Dropdown dependiente de Gerencia para Departamentos (Select)
 Route::get('dropdown/{id}','ServiceController@getDepartments');
+
+//Ruta del Dropdown dependiente de Departamento para Usuarios (Select)
+Route::get('dropdown2/{id}','ServiceController@getUsers');

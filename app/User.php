@@ -36,4 +36,9 @@ class User extends Authenticatable
     {
         # code...
     }
+
+    public static function SelectUsers($id)
+    {
+        return User::where('department_id', $id)->get();
+    }
 }

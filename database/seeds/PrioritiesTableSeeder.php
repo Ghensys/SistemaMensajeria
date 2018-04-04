@@ -13,6 +13,11 @@ class PrioritiesTableSeeder extends Seeder
     public function run()
     {
         Priority::create(array(
+            'id' => 0,
+            'description_priority' => 'Sin Asignar',
+        ));
+
+        Priority::create(array(
         	'description_priority' => 'Normal',
         ));
 

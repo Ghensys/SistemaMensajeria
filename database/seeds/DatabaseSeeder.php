@@ -11,8 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UsersTableSeeder::class);
         $this->call(InstitutionsTableSeeder::class);
+        $this->call(RolesTableSeeder::class);
         $this->call(ManagementTableSeeder::class);
         $this->call(DepartmentTableSeeder::class);
         $this->call(PrioritiesTableSeeder::class);
@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(StatusCommunicationTableSeeder::class);
         $this->call(StatusTasksTableSeeder::class);
         $this->call(CommunicationTypesTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
     }
 }

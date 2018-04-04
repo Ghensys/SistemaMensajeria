@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Management;
-use App\Department;
 use App\CommunicationType;
-use App\Priority;
 use App\Communication;
 use App\Http\Controllers\Auth;
 
@@ -35,15 +33,15 @@ class HomeController extends Controller
     public function getNewCommunication()
     {
         //$managements = Management::where('institution_id', 1)->get();
-        $managements = Management::all();
-        $departments = Department::all();
+        //$managements = Management::all();
+        //$departments = Department::all();
         $communication_types = CommunicationType::all();
-        $priorities = Priority::all();
+        //$priorities = Priority::all();
 
 
 
 
-        return view('new_communication')->with(compact('managements', 'departments', 'communication_types', 'priorities'));
+        return view('new_communication')->with(compact('communication_types'));
 
         /*Route::get('/ajax-departamento', function() 
         {
@@ -68,10 +66,10 @@ class HomeController extends Controller
         $communication->content = $request->input('content');
         $communication->save();
 
-        $managements = Management::pluck('description_management', 'id');
-        $departments = Department::pluck('description_department', 'id');
+        $managements = Management::all();
+        //$departments = Department::pluck('description_department', 'id');
 
-        return view('communication_receiver')->with(compact('managements', 'departments', 'communication'));
+        return view('communication_receiver')->with(compact('managements', 'communication'));
 
     }
 }

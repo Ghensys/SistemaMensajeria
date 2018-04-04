@@ -32,16 +32,7 @@
 
             </div>
 
-            
-            <!--div class="form-group">
-                <label for="priority">Prioridad</label>
-                <select name="priority" class="form-control">
-                    <option value="0">Seleccionar</option>
-                    @foreach($priorities as $priority)
-                        <option value="{{ $priority->id }}">{{ $priority->description_priority }}</option>
-                    @endforeach
-                </select>
-            </div-->
+          
             
             <div class="form-group">
                 <label for="title">Título</label>

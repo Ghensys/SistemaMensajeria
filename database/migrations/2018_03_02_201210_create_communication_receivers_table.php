@@ -23,10 +23,10 @@ class CreateCommunicationReceiversTable extends Migration
             $table->foreign('to_id')->references('id')->on('users');
             $table->integer('status_id')->unsigned();
             $table->foreign('status_id')->references('id')->on('status_communications');
-            $table->timestamp('read');
+            $table->timestamp('read')->nullable();
             $table->integer('priority_id')->unsigned();
             $table->foreign('priority_id')->references('id')->on('priorities');
-            $table->string('answer');
+            $table->string('answer')->nullable();
 
             //Pendiente terminar las estructuras de las tablas
 
