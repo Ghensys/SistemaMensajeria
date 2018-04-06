@@ -17,21 +17,26 @@ class CommunicationReceiver extends Model
 
     public function status_communication()
     {
-    	return $this->belongsTo('App\StatusCommunication');
+        return $this->belongsTo('App\StatusCommunication');
     }
 
     public function user()
     {
-    	return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User');
     }
 
     public function priority()
     {
-    	return $this->belongsTo('App\Priority');
+        return $this->belongsTo('App\Priority');
     }
 
     public function communication()
     {
         return $this->belongsTo('App\Communication');
+    }
+
+    public function communication_type()
+    {
+        return $this->belongsTo('App\CommunicationType');
     }
 }

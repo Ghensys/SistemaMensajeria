@@ -29,7 +29,7 @@ class User extends Authenticatable
 
     public function getIsAdminAttribute()
     {
-        return $this->role == 0;
+        return $this->role_id == 0;
     }
 
     public function getIsClientAttribute()

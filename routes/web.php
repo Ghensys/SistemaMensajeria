@@ -43,3 +43,5 @@ Route::get('dropdown/{id}','ServiceController@getDepartments');
 
 //Ruta del Dropdown dependiente de Departamento para Usuarios (Select)
 Route::get('dropdown2/{id}','ServiceController@getUsers');
+
+Route::get('/mensaje/{id}', 'MessageController@getMessage')->name('ver_mensaje');

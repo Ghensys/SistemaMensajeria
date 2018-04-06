@@ -12,10 +12,20 @@
             </div>
         @endif
 
-        	@foreach($communications as $comm)
-                {{ $comm }} /
+            @foreach($communications as $comm)
+                <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a href="/mensaje/{{ $comm->id }}">
+                            From: {{ $comm->user['name'] }} /
+                            Title: {{ $comm->title }} /
+                            Status: {{ $comm->status_communication['description_status_communication'] }} /
+                            Priority: {{ $comm->priority['description_priority'] }}
+                        </a>
+                    </li>
+                </ul>
                 
-        	@endforeach
+                
+            @endforeach
 
     </div>
 </div>

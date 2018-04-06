@@ -19,7 +19,7 @@ class AdminMiddleware
         {
             return redirect('login');
         }
-        if (auth()->user()->role != 0) //No es Administrador
+        if (auth()->user()->role_id != 0) //No es Administrador
         {
             return redirect('home');
         }
