@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="panel panel-primary">
-    <div class="panel-heading"> Asunto: {{ $comm[0]->title }} </div>
+    <div class="panel-heading"> Mensaje - {{ $comm[0]->title }} </div>
 
     <div class="panel-body">
         @if (session('status'))
@@ -35,17 +35,41 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        
-                    </td>
+                    
                 </tr>
                 <tr>
-                    <td colspan="2" class="td">
-                        {{ $comm[0]->content }}
+                    <td colspan="2" rowspan="3">
+                        Mensaje: {{ $comm[0]->content }}
                     </td>
                 </tr>
             </tbody>
         </table>
+
+        <hr>
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <button class="btn btn-primary">Seleccionar Prioridad</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary">Asignar Tarea</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary">Responder Mensaje</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary">Responder Mensaje</button>
+                    </td>
+                </tr>
+            </tbody>
+            
+        </table>
+
+        <div>
+            
+        </div>
         
     </div>
 </div>

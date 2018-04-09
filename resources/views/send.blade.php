@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="panel panel-primary">
-    <div class="panel-heading">Bandeja de Entrada</div>
+    <div class="panel-heading">Mensajes Enviados</div>
 
     <div class="panel-body">
         @if (session('status'))
@@ -16,11 +16,7 @@
                 <ul class="nav nav-pills nav-stacked">
                     <li @if($comm->status_communication['id'] == 1) class="active" @endif >
                         <a href="/mensaje/{{ $comm->id }}">
-                            De: {{ $comm->user['name'] }} /
-                            Asunto: {{ $comm->title }} /
-                            Fecha: {{ $comm->created_at }} /
-                            Estado: {{ $comm->status_communication['description_status_communication'] }} /
-                            Prioridad: {{ $comm->priority['description_priority'] }}
+                            Para: {{ $comm }}
                         </a>
                     </li>
                 </ul>
