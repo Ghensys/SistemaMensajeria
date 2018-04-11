@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 'messageFiles'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,6 +42,11 @@ return [
     */
 
     'disks' => [
+
+        'messageFiles' => [
+            'driver' => 'local',
+            'root' => public_path('messageFiles'),
+        ],
 
         'local' => [
             'driver' => 'local',

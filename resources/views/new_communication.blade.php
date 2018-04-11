@@ -13,7 +13,7 @@
         @endif
 
 
-        <form action="" method="post" accept-charset="utf-8">
+        <form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 
             {{ csrf_field() }}
                         
@@ -22,7 +22,12 @@
                 <select name="communication_type" class="form-control">
                     <option value="">Seleccionar</option>
                     @foreach($communication_types as $communication_type)
-                        <option value="{{ $communication_type->id }}">{{ $communication_type->description_communication_type }}</option>
+                        @if(Form::old('communication_type') == $communication_type->id)
+                            <option value="{{ $communication_type->id }}" selected>{{ $communication_type->description_communication_type }}</option>
+                        @else
+                            <option value="{{ $communication_type->id }}">{{ $communication_type->description_communication_type }}</option>
+                        @endif
+                        
                     @endforeach
                 </select>
                 
@@ -55,6 +60,16 @@
 
             </div>
 
+            <div class="form-group">
+                <label for="file">Anadir Archivos</label>
+                <input type="file" name="file">
+                   
+                @if($errors->has('content'))
+                  <span style="color:red;">{{ $errors->first('content') }}</span>
+                @endif
+
+            </div>
+
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Registrar</button>
@@ -63,8 +78,5 @@
         </form>
     </div>
 </div>
-
-<!script src="js/jquery.min.js'"><!/script>
-<!script src="js/dropdown.js"><!/script>
 
 @endsection
