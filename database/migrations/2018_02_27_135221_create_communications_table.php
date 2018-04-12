@@ -21,6 +21,7 @@ class CreateCommunicationsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title', 100)->notnull();
             $table->string('content', 3000)->notnull();
+            $table->string('doc_file')->nullable();
             $table->timestamps();
         });
     }

@@ -42,6 +42,11 @@
                         Mensaje: {{ $comm[0]->content }}
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="2" rowspan="3">
+                        <a href="../messageFiles/{{ $comm[0]->doc_file }}" target="_blank">{{ $comm[0]->doc_file }}</a>
+                    </td>
+                </tr>
             </tbody>
         </table>
 

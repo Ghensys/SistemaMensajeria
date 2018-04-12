@@ -8,6 +8,8 @@ use App\CommunicationType;
 use App\Communication;
 use App\CommunicationReceiver;
 use App\Http\Controllers\Auth;
+
+use Storage;
 //use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -66,6 +68,20 @@ class HomeController extends Controller
         $communication->user_id = auth()->user()->id;
         $communication->title = $request->input('title');
         $communication->content = $request->input('content');
+
+
+        $doc = $request->file('file');
+
+        $file_route = time().'_'.$doc->getClientOriginalName();
+
+        Storage::disk('messageFiles')->put($file_route, file_get_contents($doc->getRealPath()));
+
+        $communication->doc_file = $file_route;
+
+
+
+
+
         $communication->save();
 
         $managements = Management::all();

@@ -18,17 +18,21 @@ Route::get('/', function ()
 
 Auth::routes();
 
+//Acceso al sistema
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Bandeja de Entrada
 Route::get('/bandeja_entrada', 'CommunicationReceiverController@show')->name('bandeja_entrada');
 
+//Mensajes Enviados
 Route::get('/enviado', 'CommunicationSendController@show')->name('enviados');
 
-//Nueva Comunicacion METHODO GET
+//Nueva Comunicacion (Nuevo mensaje) METHODO GET para el acceso al formulario
 Route::get('/nuevo_mensaje', 'HomeController@getNewCommunication')->name('nuevo_mensaje');
 
-//Nueva Comunicacion METHODO POST
+//Nueva Comunicacion (Nuevo mensaje) METHODO POST Registro de la primera parte del formulario
 Route::post('/nuevo_mensaje', 'HomeController@postNewCommunication')->name('nuevo_mensaje');
+
 
 Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
 {
@@ -46,4 +50,7 @@ Route::get('dropdown/{id}','ServiceController@getDepartments');
 //Ruta del Dropdown dependiente de Departamento para Usuarios (Select)
 Route::get('dropdown2/{id}','ServiceController@getUsers');
 
+//Ruta para ver el Mensaje recibido
 Route::get('/mensaje/{id}', 'MessageController@getMessage')->name('ver_mensaje');
+
+//Route::get('downloadFile/{}')
