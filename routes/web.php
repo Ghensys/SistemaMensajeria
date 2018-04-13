@@ -21,11 +21,24 @@ Auth::routes();
 //Acceso al sistema
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 //Bandeja de Entrada
 Route::get('/bandeja_entrada', 'CommunicationReceiverController@show')->name('bandeja_entrada');
 
+//Ruta para ver el Mensaje recibido
+Route::get('/mensaje/{id}', 'MessageController@getMessage')->name('ver_mensaje');
+
+
 //Mensajes Enviados
 Route::get('/enviado', 'CommunicationSendController@show')->name('enviados');
+
+//Ruta para ver el Mensaje enviado
+Route::get('/mi_mensaje/{id}', 'MessageController@getMessageSend')->name('ver_mensaje');
+
+
+//Ruta para Responder los Mensajes
+Route::get('/responder_mensaje/{id}', 'MessageController@getReplyMessage')->name('responder_mensaje');
+
 
 //Nueva Comunicacion (Nuevo mensaje) METHODO GET para el acceso al formulario
 Route::get('/nuevo_mensaje', 'HomeController@getNewCommunication')->name('nuevo_mensaje');
@@ -45,12 +58,14 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
 Route::post('communication_receiver', 'CommunicationReceiverController@store');
 
 //Ruta del Dropdown dependiente de Gerencia para Departamentos (Select)
-Route::get('dropdown/{id}','ServiceController@getDepartments');
+Route::get('dropdown/{id}', 'ServiceController@getDepartments');
 
 //Ruta del Dropdown dependiente de Departamento para Usuarios (Select)
-Route::get('dropdown2/{id}','ServiceController@getUsers');
+Route::get('dropdown2/{id}', 'ServiceController@getUsers');
 
-//Ruta para ver el Mensaje recibido
-Route::get('/mensaje/{id}', 'MessageController@getMessage')->name('ver_mensaje');
+Route::post('reply_message', 'MessageController@postReplyMessage');
 
-//Route::get('downloadFile/{}')
+
+
+
+

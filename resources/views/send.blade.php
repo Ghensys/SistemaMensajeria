@@ -15,7 +15,7 @@
             @foreach($communications as $comm)
                 <ul class="nav nav-pills nav-stacked">
                     <li @if($comm->status_communication['id'] == 2) class="active" @endif >
-                        <a href="/mensaje/{{ $comm->id }}">
+                        <a href="/mi_mensaje/{{ $comm->id }}">
                             
                             Para: {{ $comm->user['name'] }} /
                             Asunto: {{ $comm->communication_type['description_communication_type'] }} /

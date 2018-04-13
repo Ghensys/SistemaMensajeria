@@ -64,21 +64,7 @@ class CommunicationReceiverController extends Controller
      */
     public function show()
     {
-        //$communication_receivers = CommunicationReceiver::where('to_id', Auth::user()->id);
-        //$communication_receivers = CommunicationReceiver::all();
         $communications = CommunicationReceiver::join('communications', 'communications.id', '=', 'communication_receivers.communication_id')->with('communication', 'user', 'status_communication', 'priority', 'communication_type')->where('communication_receivers.user_id', auth()->user()->id)->orderBy('communication_receivers.id', 'desc')->get();
-
-        //$userr = $communications->communication['user_id'];
-        
-
-        //$users = User::where('id', $communications['user_id'])->get();
-        
-
-        //$communication = Communication::where('id', $communication_receivers->communication_id)->get();
-
-        //$communications = Communication::join('communication_receivers', 'communication_receivers.communication_id', '=', 'communications.id')->join('communication_receivers.from_id', '=', 'users.id')->join('communication_receivers.to_id', '=', 'users.id')->where('communication_receivers.to_id', auth()->user()->id)->select('communications.*')->get();
-
-        //$communications = CommunicationReceiver::
         
         return view('inbox')->with(compact('communications'));
     }
