@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
 	<div class="panel-heading">
-		Menú		
+		<b>Menú</b>		
 	</div>
 	<div class="panel-body">
 
@@ -9,7 +9,7 @@
 			<ul class="nav nav-pills nav-stacked">
 				<li @if(request()->is('home')) class="active" @endif ><a href="/home">Dashboard</a></li>
 				<li @if(request()->is('nuevo_mensaje')) class="active" @endif ><a href="/nuevo_mensaje">Nuevo Mensaje</a></li>
-				<li @if(request()->is('bandeja_entrada')) class="active" @endif ><a href="/bandeja_entrada">Bandeja de Entrada</a></li>
+				<li @if(request()->is('bandeja_entrada')) class="active" @endif ><a href="/bandeja_entrada">Bandeja de Entrada <b>({{ $count }})</b></a></li>
 			  	<li @if(request()->is('enviado')) class="active" @endif ><a href="/enviado">Enviados</a></li>
 			  	<li @if(request()->is('tarea')) class="active" @endif ><a href="#">Tareas</a></li>
 			  	<li><a href="#">Comunicación Finalizada</a></li>

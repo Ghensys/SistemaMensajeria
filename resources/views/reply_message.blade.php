@@ -41,7 +41,7 @@
                 </tr>                
             </tbody>
         </table>
-        <form action="{{ url('reply_message') }}" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+        <form action="{{ url('reply_message') }}" method="post" accept-charset="utf-8">
 
             {{ csrf_field() }}
 

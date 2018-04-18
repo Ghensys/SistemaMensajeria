@@ -7,9 +7,21 @@ use App\CommunicationReceiver;
 use App\Communication;
 use App\Http\Controllers\Auth;
 use App\User;
+use View;
 
 class CommunicationReceiverController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next)
+        {
+            $count = CommunicationReceiver::where('status_communication_id', 1)->where('user_id', auth()->user()->id)->count();
+            view()->share('count', $count);
+
+            return $next($request);
+        });
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +58,6 @@ class CommunicationReceiverController extends Controller
 
         $communication_receiver = new CommunicationReceiver();
         $communication_receiver->communication_id = $request->input('communication_id');
-        //$communication_receiver->from_id = auth()->user()->id;
         $communication_receiver->user_id = $request->input('user');
         $communication_receiver->status_communication_id = 1;
         $communication_receiver->priority_id = 0;

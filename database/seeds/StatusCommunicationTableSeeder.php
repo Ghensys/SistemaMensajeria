@@ -17,7 +17,11 @@ class StatusCommunicationTableSeeder extends Seeder
         ));
 
         StatusCommunication::create(array(
-        	'description_status_communication' => 'En proceso',
+        	'description_status_communication' => 'Aperturado',
+        ));
+
+        StatusCommunication::create(array(
+            'description_status_communication' => 'Respondido',
         ));
 
         StatusCommunication::create(array(

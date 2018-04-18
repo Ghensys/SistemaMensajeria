@@ -48,8 +48,20 @@
             </tbody>
         </table>
 
-        @if(!empty($comm[0]->read))
+            <table class="table-hover">
+                <tbody>
+                    <tr>
+                        <td colspan="3">
+                            Respuesta: {{ $comm[0]->answer }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+                    
+                        
+
             <table class="table">
+                
                 <tbody>
                     <tr>
                         <td>
@@ -58,16 +70,17 @@
                         <td>
                             <button class="btn btn-primary disabled">Asignar Tarea</button>
                         </td>
-                        <td>
-                            <a href="/responder_mensaje/{{ $comm[0]->id }}" class="btn btn-primary">Responder Mensaje</a>
-                        </td>
+
+
+                            <td>
+                                <a href="/responder_mensaje/{{ $comm[0]->id }}" class="btn btn-primary">Responder Mensaje</a>
+                            </td>
+                        
+
                     </tr>
                 </tbody>
                 
             </table>
-
-        @endif
-
 
         <div>
             

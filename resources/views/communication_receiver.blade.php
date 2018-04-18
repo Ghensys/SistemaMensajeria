@@ -52,7 +52,7 @@
             </div>
 
 
-            <input type="text" name="communication_id" value="{{ $communication->id }}">
+            <input type="hidden" name="communication_id" value="{{ $communication->id }}">
             
             
 

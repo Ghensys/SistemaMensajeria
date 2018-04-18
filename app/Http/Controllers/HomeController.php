@@ -7,9 +7,10 @@ use App\Management;
 use App\CommunicationType;
 use App\Communication;
 use App\CommunicationReceiver;
-use App\Http\Controllers\Auth;
-
+use View;
 use Storage;
+//use Auth;
+use App\Http\Controllers\Auth;
 //use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -21,7 +22,13 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(function ($request, $next)
+        {
+            $count = CommunicationReceiver::where('status_communication_id', 1)->where('user_id', auth()->user()->id)->count();
+            view()->share('count', $count);
+
+            return $next($request);
+        });
     }
 
     /**
@@ -70,22 +77,17 @@ class HomeController extends Controller
         $communication->content = $request->input('content');
 
 
-        $doc = $request->file('file');
-
-        $file_route = time().'_'.$doc->getClientOriginalName();
-
-        Storage::disk('messageFiles')->put($file_route, file_get_contents($doc->getRealPath()));
-
-        $communication->doc_file = $file_route;
-
-
-
-
+        if ($request->file('file'))
+        {
+            $doc = $request->file('file');
+            $file_route = time().'_'.$doc->getClientOriginalName();
+            Storage::disk('messageFiles')->put($file_route, file_get_contents($doc->getRealPath()));
+            $communication->doc_file = $file_route;
+        }
 
         $communication->save();
 
         $managements = Management::all();
-        //$departments = Department::pluck('description_department', 'id');
 
         return view('communication_receiver')->with(compact('managements', 'communication'));
 

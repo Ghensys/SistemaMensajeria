@@ -18,6 +18,9 @@ Route::get('/', function ()
 
 Auth::routes();
 
+
+//Route::get('/*', 'CommunicationReceiverController@showPanel');
+
 //Acceso al sistema
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -38,6 +41,10 @@ Route::get('/mi_mensaje/{id}', 'MessageController@getMessageSend')->name('ver_me
 
 //Ruta para Responder los Mensajes
 Route::get('/responder_mensaje/{id}', 'MessageController@getReplyMessage')->name('responder_mensaje');
+
+//Ruta para la registrar la Respuesta del Mensaje
+Route::post('reply_message', 'MessageController@postReplyMessage');
+
 
 
 //Nueva Comunicacion (Nuevo mensaje) METHODO GET para el acceso al formulario
@@ -62,9 +69,6 @@ Route::get('dropdown/{id}', 'ServiceController@getDepartments');
 
 //Ruta del Dropdown dependiente de Departamento para Usuarios (Select)
 Route::get('dropdown2/{id}', 'ServiceController@getUsers');
-
-Route::post('reply_message', 'MessageController@postReplyMessage');
-
 
 
 
