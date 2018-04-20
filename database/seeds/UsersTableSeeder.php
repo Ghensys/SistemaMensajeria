@@ -27,6 +27,16 @@ class UsersTableSeeder extends Seeder
             'role_id' => 0,
         	));
 
+        User::create(array(
+            'name' => 'Ghensys Valero',
+            'email' => 'gvalero@conapdis.gob.ve',
+            'password' => bcrypt('conapdis'),
+            'institution_id' => '1',
+            'management_id' => '1',
+            'department_id' => '1',
+            'role_id' => 0,
+            ));
+
         //Presidencia
         User::create(array(
         	'name' => 'Presidencia',
