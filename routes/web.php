@@ -19,8 +19,6 @@ Route::get('/', function ()
 Auth::routes();
 
 
-//Route::get('/*', 'CommunicationReceiverController@showPanel');
-
 //Acceso al sistema
 Route::get('/home', 'HomeController@index')->name('home');
 

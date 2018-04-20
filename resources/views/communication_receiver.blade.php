@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="panel panel-primary">
-    <div class="panel-heading">Destinatario - {{ $communication->title }}</div>
+    <div class="panel-heading"><b>Destinatario - {{ $communication->title }}</b></div>
 
     <div class="panel-body">
         @if (session('status'))

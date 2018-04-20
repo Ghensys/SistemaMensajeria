@@ -25,7 +25,7 @@ class StatusCommunicationTableSeeder extends Seeder
         ));
 
         StatusCommunication::create(array(
-        	'description_status_communication' => 'Finalizada',
+        	'description_status_communication' => 'Respuesta Leída',
         ));
 
         StatusCommunication::create(array(

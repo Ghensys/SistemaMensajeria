@@ -15,31 +15,42 @@ class MessageController extends Controller
     {
         $this->middleware(function ($request, $next)
         {
-            $count = CommunicationReceiver::where('status_communication_id', 1)->where('user_id', auth()->user()->id)->count();
-            view()->share('count', $count);
+            $count_receiver = CommunicationReceiver::where('status_communication_id', 1)->where('user_id', auth()->user()->id)->count();
 
+            $count_send = Communication::join('communication_receivers', 'communication_receivers.communication_id', '=', 'communications.id')->with('communication', 'user')->where('communications.user_id', auth()->user()->id)->where('communication_receivers.status_communication_id', 3)->orderBy('communications.id', 'desc')->count();
+
+            view()->share('count_receiver', $count_receiver);
+            view()->share('count_send', $count_send);
+            
             return $next($request);
         });
     }
 
     public function getMessage($id)
     {
-    	$comm = CommunicationReceiver::join('communications', 'communications.id', '=', 'communication_receivers.communication_id')->with('communication', 'user', 'status_communication', 'priority', 'communication_type')->where('communication_receivers.id', $id)->get();
+        $comm = CommunicationReceiver::join('communications', 'communications.id', '=', 'communication_receivers.communication_id')->with('communication', 'user', 'status_communication', 'priority', 'communication_type')->where('communication_receivers.id', $id)->get();
 
-    	if ($comm[0]->status_communication['id'] == 1)
-    	{
-	    	$update = CommunicationReceiver::where('id', $id)->first();
-	    	$update->read = Carbon::now();
-	    	$update->status_communication_id = 2;
-	    	$update->save();
-    	}
+        if ($comm[0]->status_communication['id'] == 1)
+        {
+            $update = CommunicationReceiver::where('id', $id)->first();
+            $update->read = Carbon::now();
+            $update->status_communication_id = 2;
+            $update->save();
+        }
 
-    	return view('message')->with(compact('comm'));
+        return view('message')->with(compact('comm'));
     }
 
     public function getMessageSend($id)
     {
         $comm = CommunicationReceiver::join('communications', 'communications.id', '=', 'communication_receivers.communication_id')->with('communication', 'user', 'status_communication', 'priority', 'communication_type')->where('communication_receivers.id', $id)->get();
+
+        if ($comm[0]->user['id'] == auth()->user()->id and $comm[0]->status_communication['id'] == 3)
+        {
+            $update = CommunicationReceiver::where('id', $id)->first();
+            $update->status_communication_id = 4;
+            $update->save();
+        }
 
         return view('message')->with(compact('comm'));
     }

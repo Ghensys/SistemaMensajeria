@@ -14,18 +14,19 @@
 
             @foreach($communications as $comm)
                 <ul class="nav nav-pills nav-stacked">
-                    <li @if($comm->status_communication['id'] == 2) class="active" @endif >
+                    <li @if($comm->status_communication['id'] == 3) class="active" @endif >
                         <a href="/mi_mensaje/{{ $comm->id }}">
                             
-                            Para: {{ $comm->user['name'] }} /
-                            Asunto: {{ $comm->communication_type['description_communication_type'] }} /
-                            Enviado: {{ $comm->created_at }} /
-                            Leido: @if($comm->read)
+                            <b>Para: </b>{{ $comm->user['name'] }}
+                            <b>/ Asunto: </b>{{ $comm->communication_type['description_communication_type'] }}
+                            <b>/ Enviado: </b>{{ $comm->created_at }}
+                            <b>/ Leido: </b>@if($comm->read)
                                         {{ $comm->read }}
                                     @endif
                                     @if(!$comm->read)
                                         Sin leer
                                     @endif
+                            <b>/ Estado: </b>{{ $comm->status_communication['description_status_communication'] }}
                         </a>
                     </li>
                 </ul>
