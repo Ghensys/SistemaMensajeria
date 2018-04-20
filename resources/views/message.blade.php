@@ -71,11 +71,13 @@
                             <button class="btn btn-primary disabled">Asignar Tarea</button>
                         </td>
 
+                        @if($comm[0]->status_communication_id < 3)
 
                             <td>
                                 <a href="/responder_mensaje/{{ $comm[0]->id }}" class="btn btn-primary">Responder Mensaje</a>
                             </td>
                         
+                        @endif
 
                     </tr>
                 </tbody>
