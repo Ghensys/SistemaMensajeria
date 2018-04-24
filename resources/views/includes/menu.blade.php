@@ -7,7 +7,7 @@
 		@if(auth()->check())
 
 			<ul class="nav nav-pills nav-stacked">
-				<li @if(request()->is('home')) class="active" @endif ><a href="/home">Dashboard</a></li>
+				<!--li @if(request()->is('home')) class="active" @endif ><a href="/home">Dashboard</a></li-->
 
 				<li @if(request()->is('nuevo_mensaje')) class="active" @endif ><a href="/nuevo_mensaje">Nuevo Mensaje</a></li>
 

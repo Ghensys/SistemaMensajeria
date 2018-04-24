@@ -47,26 +47,13 @@ class HomeController extends Controller
 
     public function getNewCommunication()
     {
-        //$managements = Management::where('institution_id', 1)->get();
-        //$managements = Management::all();
-        //$departments = Department::all();
         $communication_types = CommunicationType::all();
-        //$priorities = Priority::all();
-
-
-
 
         return view('new_communication')->with(compact('communication_types'));
-
-        /*Route::get('/ajax-departamento', function() 
-        {
-            $gerencia = $request->input('gerencia');
-        });*/
     }
 
     public function postNewCommunication(Request $request)
     {
-        //Communication::create()
         //dd($request->all()) ;
         $this->validate($request, [
             'communication_type' => 'required|exists:communication_types,id',
