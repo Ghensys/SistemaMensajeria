@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="panel panel-primary">
-    <div class="panel-heading">Dashboard</div>
+    <!--div class="panel-heading"></div-->
 
     <div class="panel-body">
         @if (session('status'))
@@ -12,7 +12,9 @@
             </div>
         @endif
 
-        You are logged in!
+        Mensaje Enviado!
+
+        <!You are logged in!>
     </div>
 </div>
 
