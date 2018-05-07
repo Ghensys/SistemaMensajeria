@@ -12,7 +12,7 @@ class CommunicationReceiver extends Model
      * @var array
      */
      protected $fillable = [
-        'communication_id', 'user_id', 'status_communication_id', 'read', 'priority_id', 'answer',
+        'communication_id', 'user_receiver_id', 'status_communication_id', 'read', 'priority_id', 'answer',
     ];
 
     public function status_communication()
@@ -23,6 +23,16 @@ class CommunicationReceiver extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    /*public function user()
+    {
+        return $this->belongsTo('App\User');
+    }*/
+
+    public function user_receiver()
+    {
+        return $this->belongsTo('App\User', 'user_receiver_id');
     }
 
     public function priority()

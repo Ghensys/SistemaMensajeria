@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\CommunicationReceiver');
     }*/
+
+    public function user_receiver()
+    {
+        return $this->hasMany('App\User', 'user_receiver_id');
+    }
 }

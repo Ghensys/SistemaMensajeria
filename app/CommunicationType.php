@@ -14,4 +14,9 @@ class CommunicationType extends Model
      protected $fillable = [
         'description_communication_type',
     ];
+
+    public function communication_type()
+    {
+        return $this->hasMany('App\CommunicationType');
+    }
 }

@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <td>
-                        Asunto: {{ $comm[0]->title }}
+                        Asunto: {{ $comm[0]->communication['title'] }}
                     </td>
                 </tr>
                 <tr>
@@ -45,12 +45,12 @@
 
             {{ csrf_field() }}
 
-            <input type="hidden" name="communication_receiver_id" value="{{ $comm[0]->id }}">
+            <input type="hidden" name="communication_id" value="{{ $comm[0]->communication['title'] }}">
             
             <div class="form-group">
 
                 <label for="title">Respuesta</label>
-                <textarea name="reply_message" rows="5" class="form-control"></textarea>
+                <textarea name="reply" rows="5" class="form-control"></textarea>
             
             </div>
 

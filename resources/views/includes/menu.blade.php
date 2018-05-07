@@ -17,7 +17,7 @@
 
 			  	<li @if(request()->is('tarea')) class="active" @endif ><a href="#">Tareas</a></li>
 
-			  	<li><a href="#">Comunicación Finalizada</a></li>
+			  	<!--li><a href="#">Comunicación Finalizada</a></li-->
 			  	
 			  	@if(auth()->user()->is_admin)
 				  	<li>

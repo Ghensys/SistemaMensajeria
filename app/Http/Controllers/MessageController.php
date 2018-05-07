@@ -15,7 +15,7 @@ class MessageController extends Controller
     {
         $this->middleware(function ($request, $next)
         {
-            $count_receiver = CommunicationReceiver::where('status_communication_id', 1)->where('user_id', auth()->user()->id)->count();
+            $count_receiver = CommunicationReceiver::where('status_communication_id', 1)->where('user_receiver_id', auth()->user()->id)->count();
 
             $count_send = Communication::join('communication_receivers', 'communication_receivers.communication_id', '=', 'communications.id')->with('communication', 'user')->where('communications.user_id', auth()->user()->id)->where('communication_receivers.status_communication_id', 3)->orderBy('communications.id', 'desc')->count();
 
@@ -64,10 +64,28 @@ class MessageController extends Controller
 
     public function postReplyMessage(Request $request)
     {
-        $reply = CommunicationReceiver::where('id', $request->input('communication_receiver_id'))->first();
-        $reply->answer = $request->input('reply_message');
-        $reply->status_communication_id = 3;
-        $reply->save();
+        $communication_receiver = new CommunicationReceiver();
+        $communication_receiver->communication_id = $request->input('communication_id');
+        $communication_receiver->user_id = auth()->user()->id;
+        $communication_receiver->user_receiver_id = $request->input('user');
+        $communication_receiver->content = $request->input('content');
+
+        if ($request->file('file'))
+        {
+            $doc = $request->file('file');
+            $file_route = time().'_'.$doc->getClientOriginalName();
+            Storage::disk('messageFiles')->put($file_route, file_get_contents($doc->getRealPath()));
+            $communication->doc_file = $file_route;
+        }
+
+        $communication_receiver->status_communication_id = 1;
+        $communication_receiver->priority_id = 0;
+        $communication_receiver->save();
+
+
+
+
+
 
         return redirect()->route('ver_mensaje', ['id' => $request->input('communication_receiver_id')]);
     }

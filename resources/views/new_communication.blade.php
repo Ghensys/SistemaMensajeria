@@ -16,6 +16,42 @@
         <form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 
             {{ csrf_field() }}
+
+            <div class="form-group row">
+                
+                <div>
+                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dirigido a:</label>
+                </div>
+
+                <div class="col-xs-4">
+                    <label for="management">Gerencia</label>
+                    <select name="management" class="form-control" id="managements">
+                        <option value="">Seleccionar</option>
+                        @foreach($managements as $management)
+                            <option value="{{ $management->id }}">{{ $management->description_management }}</option>
+                        @endforeach
+                    </select>
+                    
+                </div>
+                
+                @if($errors->has('management'))
+                  <span style="color:red;">{{ $errors->first('managements') }}</span>
+                @endif
+                
+                <div class="col-xs-4">
+                    <label for="department">Departamento</label>
+                    <select name="department" class="form-control" id="departments">
+                    </select>
+                </div>
+
+                <div class="col-xs-4">
+                    <label for="user">Usuario</label>
+                    <select name="user" class="form-control" id="users">
+                    </select>
+                </div>
+            </div>
+
+            <hr>
                         
             <div class="form-group">
                 <label for="communication_type">Tipo de Mensaje</label>
@@ -63,11 +99,6 @@
             <div class="form-group">
                 <label for="file">Anadir Archivos</label>
                 <input type="file" name="file">
-                   
-                @if($errors->has('content'))
-                  <span style="color:red;">{{ $errors->first('content') }}</span>
-                @endif
-
             </div>
 
 

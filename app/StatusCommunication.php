@@ -19,4 +19,9 @@ class StatusCommunication extends Model
     {
     	return $this->hasMany('App\CommunicationReceiver', 'status_communication_id');
     }*/
+
+    public function status_communication()
+    {
+        return $this->hasMany('App\StatusCommunication');
+    }
 }
