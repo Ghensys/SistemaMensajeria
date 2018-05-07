@@ -93,6 +93,22 @@
 
             </div>
 
+            <div class="form-group">
+
+                <label for="role" class="col-md-4 control-label">Rol</label>
+
+                <div class="col-md-6">
+                    <select name="role_id" class="form-control" id="role">
+                        <option value="">Seleccionar</option>
+                        @foreach($roles as $role)
+                            <option value="{{ $role->id }}">{{ $role->description_role }}</option>
+                        @endforeach
+                    </select>
+                    
+                </div>
+
+            </div>
+
             
 
             <div class="form-group">

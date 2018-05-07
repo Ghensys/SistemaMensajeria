@@ -17,6 +17,20 @@ Route::get('/', function ()
 });
 
 Auth::routes();
+//Route1::get('/register', 'Auth\RegisterController@showRegistrationForm');
+//Route::post('/register', 'Auth\RegisterController@register');
+
+/* Rutas del Middleware Auth; */
+	
+	// Inicio de Sesión
+	//Route::get('login', 'Auth\LoginController@showLoginForm');
+	//Route::post('login', 'Auth\LoginController@login');
+
+	// Registro
+	//Route::get('/register', 'Auth\RegisterController@showRegistrationForm');
+	//Route::post('/register', 'Auth\RegisterController@register');
+
+
 
 
 //Acceso al sistema
@@ -54,9 +68,9 @@ Route::post('/nuevo_mensaje', 'HomeController@postNewCommunication')->name('nuev
 
 Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
 {
-    Route::get('/usuarios', 'UserController@index');
-    Route::get('/gerencias', 'GerenciaController@index');
-    Route::get('/departamentos', 'DepartamentoController@index');
+    Route::get('/usuarios', 'Controller@index');
+    Route::get('/gerencias', 'Controller@index');
+    Route::get('/departamentos', 'Controller@index');
 });
 
 //Ruta para el Registro del Destinatario de la Comunicacion
