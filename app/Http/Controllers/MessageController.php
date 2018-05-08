@@ -67,8 +67,8 @@ class MessageController extends Controller
         $communication_receiver = new CommunicationReceiver();
         $communication_receiver->communication_id = $request->input('communication_id');
         $communication_receiver->user_id = auth()->user()->id;
-        $communication_receiver->user_receiver_id = $request->input('user');
-        $communication_receiver->content = $request->input('content');
+        $communication_receiver->user_receiver_id = $request->input('user_receiver');
+        $communication_receiver->content = $request->input('reply');
 
         if ($request->file('file'))
         {

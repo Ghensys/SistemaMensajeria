@@ -45,13 +45,20 @@
 
             {{ csrf_field() }}
 
-            <input type="hidden" name="communication_id" value="{{ $comm[0]->communication['title'] }}">
+            <input type="hidden" name="communication_id" value="{{ $comm[0]->communication['id'] }}">
+
+            <input type="hidden" name="user_receiver" value="{{ $comm[0]->user_id }}">
             
             <div class="form-group">
 
                 <label for="title">Respuesta</label>
                 <textarea name="reply" rows="5" class="form-control"></textarea>
             
+            </div>
+
+            <div class="form-group">
+                <label for="file">Adjuntar Archivo</label>
+                <input type="file" name="file">
             </div>
 
             <div class="form-group">

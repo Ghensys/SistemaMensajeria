@@ -97,7 +97,7 @@
             </div>
 
             <div class="form-group">
-                <label for="file">Anadir Archivos</label>
+                <label for="file">Adjuntar Archivo</label>
                 <input type="file" name="file">
             </div>
 
