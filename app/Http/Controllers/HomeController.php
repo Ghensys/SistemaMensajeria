@@ -69,6 +69,7 @@ class HomeController extends Controller
         $communication->communication_type_id = $request->input('communication_type');
         $communication->user_id = auth()->user()->id;
         $communication->title = $request->input('title');
+        $communication->status_read_id = 1;
 
         $communication->save();
 

@@ -7,6 +7,8 @@ use App\CommunicationReceiver;
 use App\Communication;
 use App\Http\Controllers\Auth;
 use App\User;
+use App\StatusRead;
+
 use View;
 
 class CommunicationReceiverController extends Controller
@@ -24,26 +26,6 @@ class CommunicationReceiverController extends Controller
 
             return $next($request);
         });
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -79,42 +61,17 @@ class CommunicationReceiverController extends Controller
      */
     public function show()
     {
-        $communications = CommunicationReceiver::join('communications', 'communications.id', '=', 'communication_receivers.communication_id')->with('communication', 'user', 'status_communication', 'priority', 'communication_type')->where('communication_receivers.user_receiver_id', auth()->user()->id)->orderBy('communication_receivers.id', 'desc')->get();
+    
+        //$communications = CommunicationReceiver::join('communications', 'communications.id', '=', 'communication_receivers.communication_id')->with('communication', 'user', 'status_communication', 'priority', 'communication_type', 'status_read')->where('communication_receivers.user_receiver_id', auth()->user()->id)->orderBy('communication_receivers.id', 'desc')->get();
+
+        $communications = CommunicationReceiver::with('communication', 'user', 'status_communication', 'priority', 'communication_type', 'status_read')->where('communication_receivers.user_receiver_id', auth()->user()->id)->orderBy('communication_receivers.id', 'desc')->get();
+        
+        //$communication = Communication::
+
+        //return $communications;
+
+        //echo $communications[0]->communication['id'];
         
         return view('inbox')->with(compact('communications'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

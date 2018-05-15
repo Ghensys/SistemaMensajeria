@@ -15,6 +15,10 @@ class CommunicationReceiver extends Model
         'communication_id', 'user_receiver_id', 'status_communication_id', 'read', 'priority_id', 'answer',
     ];
 
+    /*
+        ***** Inicio de Relaciones *****
+    */
+
     public function status_communication()
     {
         return $this->belongsTo('App\StatusCommunication');
@@ -24,11 +28,6 @@ class CommunicationReceiver extends Model
     {
         return $this->belongsTo('App\User');
     }
-
-    /*public function user()
-    {
-        return $this->belongsTo('App\User');
-    }*/
 
     public function user_receiver()
     {
@@ -49,4 +48,13 @@ class CommunicationReceiver extends Model
     {
         return $this->belongsTo('App\CommunicationType');
     }
+
+    public function status_read()
+    {
+        return $this->belongsTo('App\StatusRead');
+    }
+
+    /*
+        ***** Fin de Relaciones *****
+    */
 }

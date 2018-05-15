@@ -39,4 +39,9 @@ class Communication extends Model
     {
         return $this->belongsTo('App\CommunicationType');
     }
+
+    public function status_read()
+    {
+        return $this->belongsTo('App\StatusRead');
+    }
 }
