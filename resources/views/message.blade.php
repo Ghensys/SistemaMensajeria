@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="panel panel-primary">
-    <div class="panel-heading"> Mensaje - {{ $comm[0]->title }} </div>
+    <div class="panel-heading"> Mensaje - {{ $data[0]->title }} </div>
 
     <div class="panel-body">
         @if (session('status'))
@@ -16,39 +16,39 @@
             <tbody>
                 <tr>
                     <td>
-                        Tipo de Mensaje: {{ $comm[0]->communication_type['description_communication_type'] }}
+                        Tipo de Mensaje: {{ $data[0]->communication_type['description_dataunication_type'] }}
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        De: {{ $comm[0]->user['name'] }}
+                        De: {{ $data[0]->user['name'] }}
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Asunto: {{ $comm[0]->title }}
+                        Asunto: {{ $data[0]->title }}
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Fecha de Recepcion: {{ $comm[0]->created_at }} &nbsp;&nbsp;&nbsp; Estado: {{ $comm[0]->status_communication['description_status_communication'] }}
+                        Fecha de Recepcion: {{ $data[0]->created_at }} &nbsp;&nbsp;&nbsp; Estado: {{ $data[0]->status_communication['description_status_communication'] }}
                     </td>
                 </tr>
                 <tr>
                     <td colspan="3">
-                        Mensaje: {{ $comm[0]->content }}
+                        Mensaje: {{ $data[0]->content }}
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="../messageFiles/{{ $comm[0]->doc_file }}" target="_blank">{{ $comm[0]->doc_file }}</a>
+                        <a href="../messageFiles/{{ $data[0]->doc_file }}" target="_blank">{{ $data[0]->doc_file }}</a>
                     </td>
                 </tr>
                 
             </tbody>
         </table>
 
-        @if($comm[0]->status_communication_id >= 3)
+        @if($data[0]->status_communication_id >= 3)
 
             <table class="table-hover">
                 <tbody>
@@ -59,7 +59,7 @@
                     </tr>
                     <tr>
                         <td colspan="3">
-                            {{ $comm[0]->answer }}
+                            {{ $data[0]->answer }}
                         </td>
                     </tr>
                 </tbody>
@@ -67,7 +67,7 @@
                     
         @endif           
 
-        @if($comm[0]->user['id'] != auth()->user()->id)
+        @if($data[0]->user['id'] != auth()->user()->id)
 
             <table class="table">
                     
@@ -80,10 +80,10 @@
                             <button class="btn btn-primary disabled">Asignar Tarea</button>
                         </td>
 
-                        @if($comm[0]->status_communication_id < 3)
+                        @if($data[0]->status_communication_id < 3)
 
                             <td>
-                                <a href="/responder_mensaje/{{ $comm[0]->id }}" class="btn btn-primary">Responder Mensaje</a>
+                                <a href="/responder_mensaje/{{ $data[0]->id }}" class="btn btn-primary">Responder Mensaje</a>
                             </td>
                             
                         @endif

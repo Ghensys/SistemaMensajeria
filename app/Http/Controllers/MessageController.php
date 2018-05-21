@@ -28,17 +28,19 @@ class MessageController extends Controller
 
     public function getMessage($id)
     {
-        $comm = CommunicationReceiver::join('communications', 'communications.id', '=', 'communication_receivers.communication_id')->with('communication', 'user', 'status_communication', 'priority', 'communication_type')->where('communication_receivers.id', $id)->get();
+        //$comm = CommunicationReceiver::join('communications', 'communications.id', '=', 'communication_receivers.communication_id')->with('communication', 'user', 'status_communication', 'priority', 'communication_type')->where('communications.id', $id)->get();
 
-        if ($comm[0]->status_communication['id'] == 1)
+        $data = Communication::with('communication', 'user', 'status_communication', 'priority', 'communication_type')->where('communications.id', $id)->get();
+
+        /*if ($comm[0]->status_communication['id'] == 1)
         {
             $update = CommunicationReceiver::where('id', $id)->first();
             $update->read = Carbon::now();
             $update->status_communication_id = 2;
             $update->save();
-        }
+        }*/
 
-        return view('message')->with(compact('comm'));
+        return view('message')->with(compact(/*'comm', */'data'));
     }
 
     public function getMessageSend($id)
