@@ -16,42 +16,69 @@
             <tbody>
                 <tr>
                     <td>
-                        Tipo de Mensaje: {{ $comm[0]->communication_type['description_communication_type'] }}
+                        Tipo de Mensaje: {{ $data[0]->communication_type['description_communication_type'] }}
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        De: {{ $comm[0]->user['name'] }}
+                        De: {{ $data[0]->user['name'] }}
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Asunto: {{ $comm[0]->communication['title'] }}
+                        Asunto: {{ $data[0]->title }}
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Fecha de Recepcion: {{ $comm[0]->created_at }}
+                        Fecha de Recepcion: {{ $data[0]->created_at }} &nbsp;&nbsp;&nbsp; Estado: {{ $data[0]->status_communication['description_status_communication'] }}
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="3">
-                        Mensaje: {{ $comm[0]->content }}
-                    </td>
-                </tr>                
+            </tbody>
+        </table>
+        <hr>
+        <table style="border: 1px;">
+            <tbody>
+                @foreach($comm as $cm)
+                    <tr>
+                        <td>
+                            De: {{ $cm->user['name'] }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            Mensaje: {{ $cm->content }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="../messageFiles/{{ $cm->doc_file }}" target="_blank">{{ $cm->doc_file }}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
         <form action="{{ url('reply_message') }}" method="post" accept-charset="utf-8">
 
             {{ csrf_field() }}
 
-            <input type="hidden" name="communication_id" value="{{ $comm[0]->communication['id'] }}">
+            <input type="hidden" name="communication_id" value="{{ $data[0]->id }}">
 
-            <input type="hidden" name="user_receiver" value="{{ $comm[0]->user_id }}">
+            <input type="hidden" name="user_receiver" value="{{ $comm[$i]->user_id }}">
             
             <div class="form-group">
 
-                <label for="title">Respuesta</label>
+                <label for="Reply">Respuesta</label>
                 <textarea name="reply" rows="5" class="form-control"></textarea>
             
             </div>

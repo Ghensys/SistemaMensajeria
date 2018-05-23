@@ -48,7 +48,7 @@ Route::get('/mensaje/{id}', 'MessageController@getMessage')->name('ver_mensaje')
 Route::get('/enviado', 'CommunicationSendController@show')->name('enviados');
 
 //Ruta para ver el Mensaje enviado
-Route::get('/mi_mensaje/{id}', 'MessageController@getMessageSend')->name('ver_mensaje');
+Route::get('/mi_mensaje/{id}', 'MessageController@getMessageSend');
 
 
 //Ruta para Responder los Mensajes

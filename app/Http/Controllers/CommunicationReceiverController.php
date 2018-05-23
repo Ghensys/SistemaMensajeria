@@ -64,7 +64,9 @@ class CommunicationReceiverController extends Controller
     
         //$communications = CommunicationReceiver::join('communications', 'communications.id', '=', 'communication_receivers.communication_id')->with('communication', 'user', 'status_communication', 'priority', 'communication_type', 'status_read')->where('communication_receivers.user_receiver_id', auth()->user()->id)->orderBy('communication_receivers.id', 'desc')->get();
 
-        $communications = CommunicationReceiver::with('communication', 'user', 'status_communication', 'priority', 'communication_type', 'status_read')->where('communication_receivers.user_receiver_id', auth()->user()->id)->orderBy('communication_receivers.id', 'desc')->get();
+        //$communications = CommunicationReceiver::with('communication', 'user', 'status_communication', 'priority', 'communication_type', 'status_read')->where('communication_receivers.user_receiver_id', auth()->user()->id)->orderBy('communication_receivers.id', 'desc')->get();
+
+        
         
         //$communication = Communication::
 

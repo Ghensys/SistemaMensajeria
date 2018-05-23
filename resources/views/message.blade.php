@@ -16,7 +16,7 @@
             <tbody>
                 <tr>
                     <td>
-                        Tipo de Mensaje: {{ $data[0]->communication_type['description_dataunication_type'] }}
+                        Tipo de Mensaje: {{ $data[0]->communication_type['description_communication_type'] }}
                     </td>
                 </tr>
                 <tr>
@@ -34,53 +34,49 @@
                         Fecha de Recepcion: {{ $data[0]->created_at }} &nbsp;&nbsp;&nbsp; Estado: {{ $data[0]->status_communication['description_status_communication'] }}
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="3">
-                        Mensaje: {{ $data[0]->content }}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="../messageFiles/{{ $data[0]->doc_file }}" target="_blank">{{ $data[0]->doc_file }}</a>
-                    </td>
-                </tr>
-                
+            </tbody>
+        </table>
+        <hr>
+        <table style="border: 1px;">
+            <tbody>
+                @foreach($comm as $cm)
+                    <tr>
+                        <td>
+                            De: {{ $cm->user['name'] }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            Mensaje: {{ $cm->content }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="../messageFiles/{{ $cm->doc_file }}" target="_blank">{{ $cm->doc_file }}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
 
-        @if($data[0]->status_communication_id >= 3)
-
-            <table class="table-hover">
-                <tbody>
-                    <tr>
-                        <td colspan="3">
-                            Respuesta:
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">
-                            {{ $data[0]->answer }}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-                    
-        @endif           
-
-        @if($data[0]->user['id'] != auth()->user()->id)
+        @if($comm[$i]->user['id'] != auth()->user()->id)
 
             <table class="table">
                     
                 <tbody>
                     <tr>
-                        <td>
-                            <button class="btn btn-primary disabled">Seleccionar Prioridad</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-primary disabled">Asignar Tarea</button>
-                        </td>
 
-                        @if($data[0]->status_communication_id < 3)
+                        @if($comm[$i]->status_communication_id < 3)
 
                             <td>
                                 <a href="/responder_mensaje/{{ $data[0]->id }}" class="btn btn-primary">Responder Mensaje</a>
