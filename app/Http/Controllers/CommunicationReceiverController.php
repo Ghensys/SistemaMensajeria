@@ -62,17 +62,19 @@ class CommunicationReceiverController extends Controller
     public function show()
     {
     
-        //$communications = CommunicationReceiver::join('communications', 'communications.id', '=', 'communication_receivers.communication_id')->with('communication', 'user', 'status_communication', 'priority', 'communication_type', 'status_read')->where('communication_receivers.user_receiver_id', auth()->user()->id)->orderBy('communication_receivers.id', 'desc')->get();
+        $communications = CommunicationReceiver::/*join('communications', 'communications.id', '=', 'communication_receivers.communication_id')->*/with('communication', 'user', 'user_receiver', 'status_communication', 'priority', 'communication_type', 'status_read')->where('communication_receivers.user_receiver_id', auth()->user()->id)->orderBy('communication_receivers.id', 'desc')->get();
 
         //$communications = CommunicationReceiver::with('communication', 'user', 'status_communication', 'priority', 'communication_type', 'status_read')->where('communication_receivers.user_receiver_id', auth()->user()->id)->orderBy('communication_receivers.id', 'desc')->get();
 
+        //$communications = Communication::join('communication_receivers', 'communication_receivers.communication_id', '=', 'communications.id')->with('user', 'user_receiver', 'status_communication', 'communication_type')->where('communication_receivers.user_receiver_id', auth()->user()->id)->orderBy('communications.id', 'desc')->get();
+
+        /*
+        Consulta en proceso (SEGUIR REVISANDO)
+        $communications = Communication::leftJoin('communication_receivers','communication_receivers.communication_id','=','communications.id')->with('status_read','communication')->where('communication_receivers.user_receiver_id', auth()->user()->id)->get();
         
-        
-        //$communication = Communication::
+        */
 
         //return $communications;
-
-        //echo $communications[0]->communication['id'];
         
         return view('inbox')->with(compact('communications'));
     }

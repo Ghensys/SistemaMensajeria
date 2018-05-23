@@ -25,6 +25,11 @@ class Communication extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function user_receiver()
+    {
+        return $this->belongsTo('App\User', 'user_receiver_id');
+    }
+
     public function status_communication()
     {
         return $this->belongsTo('App\StatusCommunication');

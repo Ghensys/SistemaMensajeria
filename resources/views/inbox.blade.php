@@ -19,8 +19,7 @@
                             De: {{ $comm->user['name'] }} /
                             Asunto: {{ $comm->communication['title'] }} /
                             Fecha: {{ $comm->created_at }} /
-                            Estado: {{ $comm->status_communication['description_status_communication'] }} /
-                            Prioridad: {{ $comm->priority['description_priority'] }}
+                            Estado: {{ $comm->status_communication['description_status_communication'] }} 
                         </a>
                     </li>
                 </ul>

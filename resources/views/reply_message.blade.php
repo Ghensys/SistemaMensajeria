@@ -37,6 +37,11 @@
             </tbody>
         </table>
         <hr>
+        
+        <form action="{{ url('reply_message') }}" method="post" accept-charset="utf-8">
+
+            {{ csrf_field() }}
+        
         <table style="border: 1px;">
             <tbody>
                 @foreach($comm as $cm)
@@ -65,12 +70,12 @@
                             &nbsp;
                         </td>
                     </tr>
+
+                    <input type="hidden" name="last_message[]" value="{{ $cm->id }}">
                 @endforeach
             </tbody>
         </table>
-        <form action="{{ url('reply_message') }}" method="post" accept-charset="utf-8">
 
-            {{ csrf_field() }}
 
             <input type="hidden" name="communication_id" value="{{ $data[0]->id }}">
 
