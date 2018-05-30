@@ -76,7 +76,7 @@
                 <tbody>
                     <tr>
 
-                        @if($comm[$i]->status_communication_id < 3)
+                        @if($i != 1)
 
                             <td>
                                 <a href="/responder_mensaje/{{ $data[0]->id }}" class="btn btn-primary">Responder Mensaje</a>

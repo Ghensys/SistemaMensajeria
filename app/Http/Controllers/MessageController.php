@@ -67,6 +67,18 @@ class MessageController extends Controller
         return view('message')->with(compact('comm', 'data', 'i'));
     }
 
+    public function getMessageSend($id)
+    {
+        $comm = CommunicationReceiver::join('communications', 'communications.id', '=', 'communication_receivers.communication_id')->with('communication', 'user', 'status_communication', 'priority', 'communication_type')->where('communication_receivers.id', $id)->get();
+        if ($comm[0]->user['id'] == auth()->user()->id and $comm[0]->status_communication['id'] == 3)
+        {
+            $update = CommunicationReceiver::where('id', $id)->first();
+            $update->status_communication_id = 4;
+            $update->save();
+        }
+        return view('message')->with(compact('comm'));
+    }
+
     public function getReplyMessage($id)
     {
         //$comm = CommunicationReceiver::with('communication', 'user', 'user_receiver', 'status_communication', 'priority', 'communication_type')->where('communication_receivers.communication_id', $id)->orderBy('communication_receivers.id', 'asc')->get();
@@ -82,7 +94,7 @@ class MessageController extends Controller
 
     public function postReplyMessage(Request $request)
     {
-        /*$communication_receiver = new CommunicationReceiver();
+        $communication_receiver = new CommunicationReceiver();
         $communication_receiver->communication_id = $request->input('communication_id');
         $communication_receiver->user_id = auth()->user()->id;
         $communication_receiver->user_receiver_id = $request->input('user_receiver');
@@ -107,6 +119,9 @@ class MessageController extends Controller
         echo $communication->id;
 
         return redirect()->route('ver_mensaje', $communication->id);
-        */dd($request->all());
+        
+        dd($request->all());
+
+        //foreach ($request->last_message as $key => $value) { echo $key." $value<br>"; }
     }
 }

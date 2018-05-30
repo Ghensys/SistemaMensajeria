@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="panel panel-primary">
-    <div class="panel-heading"> Responder Mensaje - {{ $comm[0]->title }} </div>
+    <div class="panel-heading"> Responder Mensaje - {{ $data[0]->title }} </div>
 
     <div class="panel-body">
         @if (session('status'))
