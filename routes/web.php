@@ -17,21 +17,6 @@ Route::get('/', function ()
 });
 
 Auth::routes();
-//Route1::get('/register', 'Auth\RegisterController@showRegistrationForm');
-//Route::post('/register', 'Auth\RegisterController@register');
-
-/* Rutas del Middleware Auth; */
-	
-	// Inicio de Sesión
-	//Route::get('login', 'Auth\LoginController@showLoginForm');
-	//Route::post('login', 'Auth\LoginController@login');
-
-	// Registro
-	//Route::get('/register', 'Auth\RegisterController@showRegistrationForm');
-	//Route::post('/register', 'Auth\RegisterController@register');
-
-
-
 
 //Acceso al sistema
 Route::get('/home', 'HomeController@index')->name('home');
@@ -68,7 +53,8 @@ Route::post('/nuevo_mensaje', 'HomeController@postNewCommunication')->name('nuev
 
 Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
 {
-    Route::get('/usuarios', 'Controller@index');
+    Route::get('/usuarios', 'UserController@index');
+    Route::get('/usuarios/getUsers', 'UserController@getUsers')->name('/usuarios/getUsers');
     Route::get('/gerencias', 'Controller@index');
     Route::get('/departamentos', 'Controller@index');
 });

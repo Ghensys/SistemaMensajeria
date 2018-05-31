@@ -47,7 +47,6 @@
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
-                            <li><a href="{{ route('register') }}">Registrar</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
@@ -103,6 +102,35 @@
     <script src="{{ asset('js/dropdown.js')}}"></script>
 
     <script src="{{ asset('js/jquery.js') }}"></script>
+
+    <!-- jQuery -->
+        <script src="//code.jquery.com/jquery.js"></script>
+        <!-- DataTables -->
+        <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script>
+$(function() {
+    $('#users-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('/usuarios/getUsers') }}",
+        columns: [
+            { data: 'id', name: 'id' },
+            { data: 'name', name: 'name' },
+            { data: 'email', name: 'email' },
+            { data: 'password', name: 'password' },
+            { data: 'institution_id', name: 'institution_id' },
+            { data: 'management_id', name: 'management_id' },
+            { data: 'department_id', name: 'department_id' },
+            { data: 'role_id', name: 'role_id' },
+            { data: 'created_at', name: 'created_at' },
+            { data: 'updated_at', name: 'updated_at' }
+        ]
+    });
+});
+</script>
+
 
 </body>
 </html>
