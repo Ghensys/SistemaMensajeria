@@ -54,7 +54,6 @@ Route::post('/nuevo_mensaje', 'HomeController@postNewCommunication')->name('nuev
 Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
 {
     Route::get('/usuario', 'UserController@index')->name('usuario.index');
-    Route::get('/usuario/create', 'Register2Controller@showRegistrationForm')->name('usuario.create');
     Route::get('/usuario/getUsers', 'UserController@getUsers')->name('usuario.getUsers');
     //Route::get('/gerencias', 'Controller@index');
     //Route::get('/departamentos', 'Controller@index');
