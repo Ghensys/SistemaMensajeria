@@ -72,7 +72,8 @@
                         <a href="{{ url('/home') }}">Menú del Sistema</a>
                     @else
                         <a href="{{ route('login') }}">Iniciar Sesión</a>
-                        <a href="{{ route('register') }}">Registrar</a>
+                        
+                    
                     @endauth
                 </div>
             @endif
@@ -81,14 +82,6 @@
                 <div class="title m-b-md">
                     Sistema de Mensajeria Conapdis
                 </div>
-
-                <!--div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div-->
             </div>
         </div>
     </body>

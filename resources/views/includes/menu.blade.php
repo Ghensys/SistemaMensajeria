@@ -23,7 +23,7 @@
 				  	<li>
 				  		<a class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" role="button">Administración</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<li><a href="/usuarios">Usuarios</a></li>
+							<li><a href="/usuario">Usuarios</a></li>
 						    <li><a href="#">Gerencias</a></li>
 						    <li><a href="#">Departamentos</a></li>
 						</ul>

@@ -14,6 +14,8 @@
 
     </div>
 
+    &nbsp;&nbsp;&nbsp;<a href="{{ route('register') }}"><button class="btn btn-primary">Registrar</button></a>
+
     <table id="users-table" class="table table-striped">
         <thead>
             <th>
