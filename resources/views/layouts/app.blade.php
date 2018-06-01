@@ -101,32 +101,29 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/dropdown.js')}}"></script>
 
-    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/datatable.js') }}"></script>
 
-        <!-- DataTables -->
-        <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-        <!-- Bootstrap JavaScript -->
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script>
-$(function() {
-    $('#users-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{{ route('/usuarios/getUsers') }}",
-        columns: [
-            { data: 'id', name: 'id' },
-            { data: 'name', name: 'Nombre' },
-            { data: 'email', name: 'Email' },
-            { data: 'institution.description_institution', name: 'Institucion' },
-            { data: 'management.description_management', name: 'Gerencia' },
-            { data: 'department.description_department', name: 'department_id' },
-            { data: 'role.description_role', name: 'role_id' },
-            { data: 'created_at', name: 'created_at' },
-            { data: 'updated_at', name: 'updated_at' }
-        ]
-    });
-});
-</script>
+        
+    <script>
+        $(function() {
+            $('#users-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('/usuarios/getUsers') }}",
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'name', name: 'name' },
+                    { data: 'email', name: 'email' },
+                    { data: 'institution.description_institution', name: 'institution.description_institution' },
+                    { data: 'management.description_management', name: 'management.description_management' },
+                    { data: 'department.description_department', name: 'department.description_department' },
+                    { data: 'role.description_role', name: 'role.description_role' },
+                    { data: 'created_at', name: 'created_at' },
+                    { data: 'updated_at', name: 'updated_at' }
+                ]
+            });
+        });
+    </script>
 
 
 </body>
