@@ -33,9 +33,9 @@ class UserController extends Controller
 
     public function getUsers()
     {
-    	return Datatables::of(User::query())->make(true);
+    	//return Datatables::of(User::query())->make(true);
     	//return datatables()->of(User::query())->toJson();
 		//return datatables()->of(DB::table('users'))->toJson();
-		//return datatables()->of(User::all())->toJson();
+		return datatables()->of(User::with('institution', 'management', 'department', 'role'))->toJson();
     }
 }

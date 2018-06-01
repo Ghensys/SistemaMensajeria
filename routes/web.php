@@ -55,8 +55,8 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
 {
     Route::get('/usuarios', 'UserController@index');
     Route::get('/usuarios/getUsers', 'UserController@getUsers')->name('/usuarios/getUsers');
-    Route::get('/gerencias', 'Controller@index');
-    Route::get('/departamentos', 'Controller@index');
+    //Route::get('/gerencias', 'Controller@index');
+    //Route::get('/departamentos', 'Controller@index');
 });
 
 //Ruta para el Registro del Destinatario de la Comunicacion

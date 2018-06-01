@@ -12,6 +12,6 @@ class Management extends Model
      * @var array
      */
      protected $fillable = [
-        'description_management',
+        'description_management', 'institution_id',
     ];
 }

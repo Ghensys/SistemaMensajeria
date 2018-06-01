@@ -103,8 +103,6 @@
 
     <script src="{{ asset('js/jquery.js') }}"></script>
 
-    <!-- jQuery -->
-        <script src="//code.jquery.com/jquery.js"></script>
         <!-- DataTables -->
         <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
         <!-- Bootstrap JavaScript -->
@@ -117,13 +115,12 @@ $(function() {
         ajax: "{{ route('/usuarios/getUsers') }}",
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'name', name: 'name' },
-            { data: 'email', name: 'email' },
-            { data: 'password', name: 'password' },
-            { data: 'institution_id', name: 'institution_id' },
-            { data: 'management_id', name: 'management_id' },
-            { data: 'department_id', name: 'department_id' },
-            { data: 'role_id', name: 'role_id' },
+            { data: 'name', name: 'Nombre' },
+            { data: 'email', name: 'Email' },
+            { data: 'institution.description_institution', name: 'Institucion' },
+            { data: 'management.description_management', name: 'Gerencia' },
+            { data: 'department.description_department', name: 'department_id' },
+            { data: 'role.description_role', name: 'role_id' },
             { data: 'created_at', name: 'created_at' },
             { data: 'updated_at', name: 'updated_at' }
         ]

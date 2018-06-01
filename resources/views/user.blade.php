@@ -14,25 +14,22 @@
 
     </div>
 
-    <table id="users-table" class="table">
+    <table id="users-table" class="table table-striped">
         <thead>
             <th>
                 id
             </th>
             <th>
-                name
+                Nombre
             </th>
             <th>
-                email
+                Email
             </th>
             <th>
-                password
+                Institución
             </th>
             <th>
-                institution_id
-            </th>
-            <th>
-                management_id
+                Gerencia
             </th>
             <th>
                 department_id
@@ -49,6 +46,7 @@
         </thead>
         <tbody></tbody>
     </table>
+    
 </div>
 
 

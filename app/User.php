@@ -42,13 +42,28 @@ class User extends Authenticatable
         return User::where('department_id', $id)->get();
     }
 
-    /*public function communication_receivers()
-    {
-        return $this->belongsToMany('App\CommunicationReceiver');
-    }*/
-
     public function user_receiver()
     {
         return $this->hasMany('App\User', 'user_receiver_id');
+    }
+
+    public function institution()
+    {
+        return $this->belongsTo('App\Institution');
+    }
+
+    public function management()
+    {
+        return $this->belongsTo('App\Management');
+    }
+
+    public function department()
+    {
+        return $this->belongsTo('App\Department');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo('App\Role');
     }
 }
