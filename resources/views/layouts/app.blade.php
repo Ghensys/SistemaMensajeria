@@ -15,6 +15,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -103,6 +106,12 @@
 
     <script src="{{ asset('js/datatable.js') }}"></script>
 
+    <!script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.0.0/jquery.mark.min.js"><!/script>
+
+    <script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
+
+
+
         
     <script>
         $(function() {
@@ -118,7 +127,6 @@
                     { data: 'management.description_management', name: 'management.description_management' },
                     { data: 'department.description_department', name: 'department.description_department' },
                     { data: 'role.description_role', name: 'role.description_role' },
-                    { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' }
                 ]
             });

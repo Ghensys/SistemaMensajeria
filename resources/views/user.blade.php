@@ -32,16 +32,13 @@
                 Gerencia
             </th>
             <th>
-                department_id
+                Departamento
             </th>
             <th>
-                role_id
+                Rol
             </th>
             <th>
-                created_at
-            </th>
-            <th>
-                updated_at
+                Ultima Act.
             </th>
         </thead>
         <tbody></tbody>
