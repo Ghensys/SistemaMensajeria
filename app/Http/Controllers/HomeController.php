@@ -9,9 +9,8 @@ use App\Communication;
 use App\CommunicationReceiver;
 use View;
 use Storage;
-//use Auth;
 use App\Http\Controllers\Auth;
-//use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -26,10 +25,7 @@ class HomeController extends Controller
         {
             $count_receiver = CommunicationReceiver::where('status_communication_id', 1)->where('user_receiver_id', auth()->user()->id)->count();
 
-            $count_send = Communication::join('communication_receivers', 'communication_receivers.communication_id', '=', 'communications.id')->with('communication', 'user')->where('communications.user_id', auth()->user()->id)->where('communication_receivers.status_communication_id', 3)->orderBy('communications.id', 'desc')->count();
-
             view()->share('count_receiver', $count_receiver);
-            view()->share('count_send', $count_send);
 
             return $next($request);
         });

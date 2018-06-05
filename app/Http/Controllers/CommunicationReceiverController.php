@@ -63,19 +63,29 @@ class CommunicationReceiverController extends Controller
     {
     
         $communications = CommunicationReceiver::/*join('communications', 'communications.id', '=', 'communication_receivers.communication_id')->*/with('communication', 'user', 'user_receiver', 'status_communication', 'priority', 'communication_type', 'status_read')->where('communication_receivers.user_receiver_id', auth()->user()->id)->orderBy('communication_receivers.id', 'desc')->get();
-
-        //$communications = CommunicationReceiver::with('communication', 'user', 'status_communication', 'priority', 'communication_type', 'status_read')->where('communication_receivers.user_receiver_id', auth()->user()->id)->orderBy('communication_receivers.id', 'desc')->get();
-
-        //$communications = Communication::join('communication_receivers', 'communication_receivers.communication_id', '=', 'communications.id')->with('user', 'user_receiver', 'status_communication', 'communication_type')->where('communication_receivers.user_receiver_id', auth()->user()->id)->orderBy('communications.id', 'desc')->get();
-
-        /*
-        Consulta en proceso (SEGUIR REVISANDO)
-        $communications = Communication::leftJoin('communication_receivers','communication_receivers.communication_id','=','communications.id')->with('status_read','communication')->where('communication_receivers.user_receiver_id', auth()->user()->id)->get();
         
-        */
+        return view('inbox')->with(compact('communications', 'i'));
+/*
+        foreach ($communications as $key => $value) {
+            $i = strtotime($value->created_at);
 
-        //return $communications;
-        
-        return view('inbox')->with(compact('communications'));
+            $prueba = date_create(substr($value->created_at, 0, 10));
+            $prueba2 = date_create(date('Y-m-d'));
+            echo date_diff($prueba, $prueba2)->format('%R%a');
+            echo "<br>".$value->created_at."<br>";
+
+            if ($i == 0) {
+                echo "i es 0 <br>";
+            }
+            else
+            {
+                echo $i."<br>";
+            }
+
+            //echo $i;
+            //echo "<br>";
+        }*/
+
+        //$i = substr($comm->created_at, 0, 10) - date('y-m-d');
     }
 }

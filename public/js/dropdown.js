@@ -11,7 +11,7 @@ $("#managements").change(function(event)
 			$("#departments").append("<option value='"+response[i].id+ "'> "+response[i].description_department+"</option>");
 		}
 
-		console.log(response);
+		//console.log(response);
 	});
 });
 
@@ -28,6 +28,6 @@ $("#departments").change(function(event)
 			$("#users").append("<option value='"+response[i].id+ "'> "+response[i].name+"</option>");
 		}
 
-		console.log(response);
+		//console.log(response);
 	});
 });

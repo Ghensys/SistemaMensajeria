@@ -14,9 +14,36 @@
 
             @foreach($communications as $comm)
                 <ul class="nav nav-pills nav-stacked">
-                    <li @if($comm->status_communication['id'] == 1) class="active" @endif >
-                        <a href="/mensaje/{{ $comm->communication['id'] }}">
-                            De: {{ $comm->user['name'] }} /
+
+
+                    @if($comm->status_communication['id'] != 4)
+
+                        @php
+                            $prueba = date_create(substr($comm->created_at, 0, 10));
+                            $prueba2 = date_create(date('Y-m-d'));
+                            $dias = date_diff($prueba, $prueba2)->format('%R%a');
+                        @endphp
+
+                        @switch($dias)
+                            @case($dias < 1)
+                                @php($alert = "green")
+                                @break
+
+                            @case($dias < 2)
+                                @php($alert = "yellow")
+                                @break
+
+                            @default
+                                @php($alert = "red")
+
+                        @endswitch
+
+                    @endif
+                    
+
+                    <li>
+                        <a href="/mensaje/{{ $comm->communication['id'] }}" @if($comm->status_communication['id'] != 4) style="color:{{ $alert }}" @endif>
+                             De: {{ $comm->user['name'] }} /
                             Asunto: {{ $comm->communication['title'] }} /
                             Fecha: {{ $comm->created_at }} /
                             Estado: {{ $comm->status_communication['description_status_communication'] }} 

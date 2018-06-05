@@ -52,14 +52,25 @@ class MessageController extends Controller
         {
             if ($comm[$i]->status_communication['id'] == 1 and $comm[$i]->user_receiver_id == auth()->user()->id)
             {
-                $update = CommunicationReceiver::where('id', $comm[$i]->id)->first();
-                $update->read = Carbon::now();
-                $update->status_communication_id = 2;
-                $update->save();
 
-                $next_update = Communication::where('id', $update->communication_id)->first();
-                $next_update->status_read_id = 1;
-                $next_update->save();
+                if ($comm[$i]->communication['user_id'] == auth()->user()->id) 
+                {
+                    $update = CommunicationReceiver::where('id', $comm[$i]->id)->first();
+                    $update->read = Carbon::now();
+                    $update->status_communication_id = 4;
+                    $update->save();
+                    
+                    foreach ($comm as $cm)
+                    {
+                        $massive_update = CommunicationReceiver::where('communication_receivers.communication_id', $update->communication_id)->first();
+                        $massive_update->status_communication_id = 4;
+                        $massive_update->save();
+                    }
+
+                    $next_update = Communication::where('id', $update->communication_id)->first();
+                    $next_update->status_read_id = 1;
+                    $next_update->save();
+                }
             }
         }
 

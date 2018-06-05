@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Communication;
 use App\CommunicationReceiver;
 use App\User;
+use App\Management;
+use App\Department;
+use App\Role;
+
 use Yajra\Datatables\Datatables;
 
 class UserController extends Controller
@@ -33,6 +37,27 @@ class UserController extends Controller
 
     public function getUsers()
     {
-		return datatables()->of(User::with('institution', 'management', 'department', 'role'))->toJson();
+        $users = User::with('institution', 'management', 'department', 'role');
+
+        return Datatables::of($users)
+            ->addColumn('action', function ($user) {
+                return '<a href="update/'.$user->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Editar</a>';
+            })
+            ->editColumn('id', 'ID: {{$id}}')
+            //->removeColumn('password')
+            ->make(true);
+    }
+
+    public function getUpdate($id)
+    {
+        $user = User::with('institution', 'management', 'department', 'role')->find($id);
+
+        $managements = Management::all();
+
+        $roles = Role::all();
+
+        //return view('users.update')->with(compact('user', 'managements', 'roles'));
+
+        return $user;
     }
 }

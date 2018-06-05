@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div class="panel panel-primary">
+<div class="panel panel-primary table-responsive">
     <div class="panel-heading">Gestión de Usuarios</div>
 
-    <div class="panel-body">
+    <div class="panel-body container">
         @if (session('status'))
             <div class="alert alert-success">
                 {{ session('status') }}
@@ -16,35 +16,37 @@
 
     &nbsp;&nbsp;&nbsp;<a href="{{ route('register') }}"><button class="btn btn-primary">Registrar</button></a>
 
-    <table id="users-table" class="table table-striped">
-        <thead>
-            <th>
-                id
-            </th>
-            <th>
-                Nombre
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Institución
-            </th>
-            <th>
-                Gerencia
-            </th>
-            <th>
-                Departamento
-            </th>
-            <th>
-                Rol
-            </th>
-            <th>
-                Ultima Act.
-            </th>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <div style="padding: 2em;">
+        <table id="users-table" class="table table-striped table-sm">
+            <thead>
+                <th>
+                    id
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Institución
+                </th>
+                <th>
+                    Gerencia
+                </th>
+                <th>
+                    Departamento
+                </th>
+                <th>
+                    Rol
+                </th>
+                <th>
+                    Acción
+                </th>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
     
 </div>
 

@@ -16,7 +16,17 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
     <link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">
+
+    <style type="text/css">
+        .zzzz
+        {
+            background-color: red; !important
+        }
+    </style>
+
+
     
 </head>
 <body>
@@ -127,7 +137,8 @@
                     { data: 'management.description_management', name: 'management.description_management' },
                     { data: 'department.description_department', name: 'department.description_department' },
                     { data: 'role.description_role', name: 'role.description_role' },
-                    { data: 'updated_at', name: 'updated_at' }
+                    { data: 'action', name: 'action', orderable: false, searchable: false}
+
                 ]
             });
         });

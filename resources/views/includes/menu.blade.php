@@ -13,7 +13,7 @@
 
 				<li @if(request()->is('nuevo_mensaje')) class="active" @endif ><a href="/nuevo_mensaje">Nuevo Mensaje</a></li>
 
-			  	<li @if(request()->is('enviado')) class="active" @endif ><a href="/enviado">Enviados @if($count_send != 0) <b>({{ $count_send }} Respondidos)</b> @endif </a></li>
+			  	<li @if(request()->is('enviado')) class="active" @endif><a href="/enviado">Enviados</a></li>
 
 			  	<li @if(request()->is('tarea')) class="active" @endif ><a href="#">Tareas</a></li>
 
