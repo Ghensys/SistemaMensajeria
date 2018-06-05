@@ -53,9 +53,34 @@ class UserController extends Controller
         $users = User::with('institution', 'management', 'department', 'role')->find($id);
         $roles = Role::all();
         $managements = Management::all();
-        $departments = Department::all();
+        $departments = Department::where('management_id', $users->management_id)->get();
 
         return view('users.update')->with(compact('users','roles', 'managements', 'departments'));
+    }
 
+    public function postUpdateUser(Request $request)
+    {
+        //dd($request->all());
+
+        $this->validate($request, [
+            'id' => 'required|exists:users,id',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'management_id' => 'required|exists:managements,id',
+            'department_id' => 'required|exists:departments,id',
+            'role_id' => 'required|exists:roles,id',
+            ]);
+
+        $update_user = User::find($request->id);
+
+        $update_user->name = $request->name;
+        $update_user->email = $request->email;
+        $update_user->management_id = $request->management_id;
+        $update_user->department_id = $request->department_id;
+        $update_user->role_id = $request->role_id;
+
+        $update_user->save();
+
+        return redirect(route('usuario.index'));
     }
 }

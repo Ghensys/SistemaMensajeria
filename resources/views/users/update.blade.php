@@ -6,8 +6,10 @@
     <div class="panel-heading">Register</div>
 
     <div class="panel-body">
-        <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+        <form class="form-horizontal" method="POST" action="/update">
             {{ csrf_field() }}
+
+            <input type="hidden" name="id" value="{{ $users->id }}">
 
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                 <label for="name" class="col-md-4 control-label">Nombre Completo</label>
@@ -68,7 +70,7 @@
                 <label for="department" class="col-md-4 control-label">Departamento</label>
 
                 <div class="col-md-6">
-                    <select name="department_id" class="form-control" id="departments" disabled>
+                    <select name="department_id" class="form-control" id="departments">
                         @foreach($departments as $department)
                             @if($users->department_id == $department->id)
                                 <option value="{{ $department->id }}" selected="selected">{{ $department->description_department }}</option>

@@ -56,6 +56,7 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
     Route::get('/usuario', 'UserController@index')->name('usuario.index');
     Route::get('/usuario/getUsers', 'UserController@getUsers')->name('usuario.getUsers');
     Route::get('/update/{id}', 'UserController@getUpdate');
+    Route::post('/update', 'UserController@postUpdateUser');
     //Route::get('/gerencias', 'Controller@index');
     //Route::get('/departamentos', 'Controller@index');
 });
