@@ -31,3 +31,17 @@ $("#departments").change(function(event)
 		//console.log(response);
 	});
 });
+
+/*if(document.getElementById('managements').selected){
+     $.get("dropdown/"+event.target.value+"",function(response,managements)
+	{
+		$('#departments').removeAttr('disabled');
+
+		$("#departments").empty();
+		$("#departments").append("<option value='0' disabled selected>Seleccionar</option>");
+		for(i=0; i<response.length; i++)
+		{
+			$("#departments").append("<option value='"+response[i].id+ "'> "+response[i].description_department+"</option>");
+		}
+	});
+}*/

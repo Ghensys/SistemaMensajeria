@@ -13,7 +13,7 @@
                 <label for="name" class="col-md-4 control-label">Nombre Completo</label>
 
                 <div class="col-md-6">
-                    <input id="name" type="text" class="form-control" name="name" value="{{ $user->name }}" required autofocus>
+                    <input id="name" type="text" class="form-control" name="name" value="{{ $users->name }}" required autofocus>
 
                     @if ($errors->has('name'))
                         <span class="help-block">
@@ -27,35 +27,13 @@
                 <label for="email" class="col-md-4 control-label">Dirección de Correo</label>
 
                 <div class="col-md-6">
-                    <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" required>
+                    <input id="email" type="email" class="form-control" name="email" value="{{ $users->email }}" required>
 
                     @if ($errors->has('email'))
                         <span class="help-block">
                             <strong>{{ $errors->first('email') }}</strong>
                         </span>
                     @endif
-                </div>
-            </div>
-
-            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                <label for="password" class="col-md-4 control-label">Contraseña</label>
-
-                <div class="col-md-6">
-                    <input id="password" type="password" class="form-control" name="password" required>
-
-                    @if ($errors->has('password'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="password-confirm" class="col-md-4 control-label">Confirmar Contraseña</label>
-
-                <div class="col-md-6">
-                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                 </div>
             </div>
 
@@ -69,7 +47,11 @@
                     <select name="management_id" class="form-control" id="managements">
                         <option value="">Seleccionar</option>
                         @foreach($managements as $management)
-                            <option value="{{ $management->id }}">{{ $management->description_management }}</option>
+                            @if($users->management_id == $management->id)
+                                <option value="{{ $management->id }}" selected="selected">{{ $management->description_management }}</option>
+                            @else
+                                <option value="{{ $management->id }}">{{ $management->description_management }}</option>
+                            @endif
                         @endforeach
                     </select>
                     
@@ -86,7 +68,14 @@
                 <label for="department" class="col-md-4 control-label">Departamento</label>
 
                 <div class="col-md-6">
-                    <select name="department_id" class="form-control" id="departments">
+                    <select name="department_id" class="form-control" id="departments" disabled>
+                        @foreach($departments as $department)
+                            @if($users->department_id == $department->id)
+                                <option value="{{ $department->id }}" selected="selected">{{ $department->description_department }}</option>
+                            @else
+                                <option value="{{ $department->id }}">{{ $department->description_department }}</option>
+                            @endif
+                        @endforeach
                     </select>
                     
                 </div>
@@ -101,7 +90,11 @@
                     <select name="role_id" class="form-control" id="role">
                         <option value="">Seleccionar</option>
                         @foreach($roles as $role)
-                            <option value="{{ $role->id }}">{{ $role->description_role }}</option>
+                            @if($users->role_id == $role->id)
+                                <option value="{{ $role->id }}" selected="selected">{{ $role->description_role }}</option>
+                            @else
+                                <option value="{{ $role->id }}">{{ $role->description_role }}</option>
+                            @endif
                         @endforeach
                     </select>
                     
@@ -114,7 +107,7 @@
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-4"><br>
                     <button type="submit" class="btn btn-primary">
-                        Register
+                        Actualizar
                     </button>
                 </div>
             </div>

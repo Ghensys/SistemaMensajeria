@@ -50,14 +50,12 @@ class UserController extends Controller
 
     public function getUpdate($id)
     {
-        $user = User::with('institution', 'management', 'department', 'role')->find($id);
-
-        $managements = Management::all();
-
+        $users = User::with('institution', 'management', 'department', 'role')->find($id);
         $roles = Role::all();
+        $managements = Management::all();
+        $departments = Department::all();
 
-        //return view('users.update')->with(compact('user', 'managements', 'roles'));
+        return view('users.update')->with(compact('users','roles', 'managements', 'departments'));
 
-        return $user;
     }
 }

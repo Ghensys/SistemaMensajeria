@@ -63,12 +63,15 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
 //Ruta para el Registro del Destinatario de la Comunicacion
 Route::post('communication_receiver', 'CommunicationReceiverController@store');
 
-//Ruta del Dropdown dependiente de Gerencia para Departamentos (Select)
+//Ruta del Dropdown dependiente de Gerencia para Departamentos (Select) Registro de Usuarios
 Route::get('dropdown/{id}', 'ServiceController@getDepartments');
 
-//Ruta del Dropdown dependiente de Departamento para Usuarios (Select)
+//Ruta del Dropdown dependiente de Gerencia para Departamentos (Select) Actualizacion de Usuarios
+Route::get('/update/dropdown/{id}', 'ServiceController@getDepartments');
+
+
+//Ruta del Dropdown dependiente de Departamento para Usuarios (Select) Registro de Usuarios
 Route::get('dropdown2/{id}', 'ServiceController@getUsers');
 
-
-
-
+//Ruta del Dropdown dependiente de Departamento para Usuarios (Select) Actualizacion de Usuarios
+Route::get('/update/dropdown2/{id}', 'ServiceController@getUsers');
