@@ -8,6 +8,7 @@ use App\Communication;
 use App\Http\Controllers\Auth;
 use App\User;
 use App\StatusRead;
+use App\SetTime;
 
 use View;
 
@@ -63,8 +64,10 @@ class CommunicationReceiverController extends Controller
     {
     
         $communications = CommunicationReceiver::/*join('communications', 'communications.id', '=', 'communication_receivers.communication_id')->*/with('communication', 'user', 'user_receiver', 'status_communication', 'priority', 'communication_type', 'status_read')->where('communication_receivers.user_receiver_id', auth()->user()->id)->orderBy('communication_receivers.id', 'desc')->get();
+
+        $settimes = SetTime::all();
         
-        return view('inbox')->with(compact('communications', 'i'));
+        return view('inbox')->with(compact('communications', 'i', 'settimes'));
 /*
         foreach ($communications as $key => $value) {
             $i = strtotime($value->created_at);

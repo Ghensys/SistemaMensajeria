@@ -55,11 +55,13 @@
                             Mensaje: {{ $cm->content }}
                         </td>
                     </tr>
+                    @if($cm->doc_file)
                     <tr>
                         <td>
-                            <a href="../messageFiles/{{ $cm->doc_file }}" target="_blank">{{ $cm->doc_file }}</a>
+                            Archivo Adjunto: <a href="../messageFiles/{{ $cm->doc_file }}" target="_blank">{{ $cm->doc_file }}</a>
                         </td>
                     </tr>
+                    @endif
                     <tr>
                         <td>
                             &nbsp;

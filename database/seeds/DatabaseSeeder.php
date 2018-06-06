@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CommunicationTypesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(StatusReadTableSeeder::class);
+        $this->call(SetTimeSeeder::class);
     }
 }

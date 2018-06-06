@@ -116,7 +116,7 @@ class MessageController extends Controller
             $doc = $request->file('file');
             $file_route = time().'_'.$doc->getClientOriginalName();
             Storage::disk('messageFiles')->put($file_route, file_get_contents($doc->getRealPath()));
-            $communication->doc_file = $file_route;
+            $communication_receiver->doc_file = $file_route;
         }
 
         $communication_receiver->status_communication_id = 1;

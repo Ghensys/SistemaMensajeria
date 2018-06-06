@@ -25,11 +25,11 @@
                         @endphp
 
                         @switch($dias)
-                            @case($dias < 1)
+                            @case($dias < $settimes[0]->day)
                                 @php($alert = "green")
                                 @break
 
-                            @case($dias < 2)
+                            @case($dias < $settimes[1]->day)
                                 @php($alert = "yellow")
                                 @break
 
