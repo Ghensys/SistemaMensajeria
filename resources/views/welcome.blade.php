@@ -69,7 +69,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Menú del Sistema</a>
+                        <a href="{{ url('bandeja_entrada') }}">Menú del Sistema</a>
                     @else
                         <a href="{{ route('login') }}">Iniciar Sesión</a>
                         

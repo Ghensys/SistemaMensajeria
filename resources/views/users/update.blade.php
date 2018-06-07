@@ -3,10 +3,10 @@
 @section('content')
 
 <div class="panel panel-default">
-    <div class="panel-heading">Register</div>
+    <div class="panel-heading">Actualizar Usuario</div>
 
     <div class="panel-body">
-        <form class="form-horizontal" method="POST" action="/update">
+        <form class="form-horizontal" method="POST" action="/usuario/update">
             {{ csrf_field() }}
 
             <input type="hidden" name="id" value="{{ $users->id }}">

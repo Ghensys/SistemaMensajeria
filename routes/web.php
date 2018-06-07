@@ -50,15 +50,46 @@ Route::get('/nuevo_mensaje', 'HomeController@getNewCommunication')->name('nuevo_
 //Nueva Comunicacion (Nuevo mensaje) METHODO POST Registro de la primera parte del formulario
 Route::post('/nuevo_mensaje', 'HomeController@postNewCommunication')->name('nuevo_mensaje');
 
-
+//Grupo de rutas protegidas por el middleware de administrador
 Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
 {
+	/*
+     * --------------------------------------------------
+     * Usuarios
+     */
+	//Ruta del index
     Route::get('/usuario', 'UserController@index')->name('usuario.index');
+    
+    //Ruta desde la cual llama la data.
     Route::get('/usuario/getUsers', 'UserController@getUsers')->name('usuario.getUsers');
-    Route::get('/update/{id}', 'UserController@getUpdate');
-    Route::post('/update', 'UserController@postUpdateUser');
-    //Route::get('/gerencias', 'Controller@index');
-    //Route::get('/departamentos', 'Controller@index');
+    
+    //Ruta donde trae la data del usuario
+    Route::get('/usuario/update/{id}', 'UserController@getUpdate');
+    
+    //Ruta donde hace la actualizacion
+    Route::post('/usuario/update', 'UserController@postUpdateUser');
+
+    /*
+     * --------------------------------------------------
+     * Gerencias
+     */
+	//Ruta del index
+    Route::get('/gerencia', 'ManagementController@index')->name('gerencia.index');
+    
+    //Ruta desde la cual llama la data.
+    Route::get('/gerencia/getManagements', 'ManagementController@getManagements')->name('gerencia.getManagements');
+
+    //Ruta para la vista con el formulario de registro de gerencia
+    Route::get('/gerencia/new', 'ManagementController@getFormNewManagement')->name('gerencia.new');
+
+    //Carga de la gerencia
+    Route::post('/gerencia/new', 'ManagementController@create');
+    
+    //Ruta donde trae la data de la gerencia
+    Route::get('/gerencia/update/{id}', 'ManagementController@getUpdate');
+    
+    //Ruta donde hace la actualizacion
+    Route::post('/gerencia/update', 'ManagementController@postUpdateManagement');
 });
 
 //Ruta para el Registro del Destinatario de la Comunicacion

@@ -14,4 +14,9 @@ class Management extends Model
      protected $fillable = [
         'description_management', 'institution_id',
     ];
+
+    public function institution()
+    {
+        return $this->belongsTo('App\Institution');
+    }
 }

@@ -32,7 +32,7 @@ class UserController extends Controller
 
     public function index()
     {
-    	return view('users.user');
+    	return view('users.index');
     }
 
     public function getUsers()
@@ -41,7 +41,7 @@ class UserController extends Controller
 
         return Datatables::of($users)
             ->addColumn('action', function ($user) {
-                return '<a href="update/'.$user->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Editar</a>';
+                return '<a href="/usuario/update/'.$user->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Editar</a>';
             })
             ->editColumn('id', 'ID: {{$id}}')
             //->removeColumn('password')
@@ -71,15 +71,15 @@ class UserController extends Controller
             'role_id' => 'required|exists:roles,id',
             ]);
 
-        $update_user = User::find($request->id);
+        $update = User::find($request->id);
 
-        $update_user->name = $request->name;
-        $update_user->email = $request->email;
-        $update_user->management_id = $request->management_id;
-        $update_user->department_id = $request->department_id;
-        $update_user->role_id = $request->role_id;
+        $update->name = $request->name;
+        $update->email = $request->email;
+        $update->management_id = $request->management_id;
+        $update->department_id = $request->department_id;
+        $update->role_id = $request->role_id;
 
-        $update_user->save();
+        $update->save();
 
         return redirect(route('usuario.index'));
     }
