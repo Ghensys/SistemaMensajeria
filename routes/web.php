@@ -90,6 +90,28 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
     
     //Ruta donde hace la actualizacion
     Route::post('/gerencia/update', 'ManagementController@postUpdateManagement');
+
+    /*
+     * --------------------------------------------------
+     * Departamento
+     */
+	//Ruta del index
+    Route::get('/departamento', 'DepartmentController@index')->name('departamento.index');
+    
+    //Ruta desde la cual llama la data.
+    Route::get('/departamento/getDepartments', 'DepartmentController@getDepartments')->name('departamento.getDepartments');
+
+    //Ruta para la vista con el formulario de registro de departamento
+    Route::get('/departamento/new', 'DepartmentController@getFormNewDepartments')->name('departamento.new');
+
+    //Carga de la departamento
+    Route::post('/departamento/new', 'DepartmentController@create');
+    
+    //Ruta donde trae la data de la departamento
+    Route::get('/departamento/update/{id}', 'DepartmentController@getUpdate');
+    
+    //Ruta donde hace la actualizacion
+    Route::post('/departamento/update', 'DepartmentController@postUpdateDepartment');
 });
 
 //Ruta para el Registro del Destinatario de la Comunicacion

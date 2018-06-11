@@ -19,4 +19,9 @@ class Department extends Model
     {
     	return Department::where('management_id', $id)->get();
     }
+
+    public function management()
+    {
+        return $this->belongsTo('App\Management');
+    }
 }

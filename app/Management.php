@@ -19,4 +19,9 @@ class Management extends Model
     {
         return $this->belongsTo('App\Institution');
     }
+
+    public function management()
+    {
+        return $this->hasMany('App\Management');
+    }
 }

@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="panel panel-primary table-responsive">
-    <div class="panel-heading">Gestión de Gerencias</div>
+    <div class="panel-heading">Gestión de Departamentos</div>
 
     <div class="panel-body container">
         @if (session('status'))
@@ -14,19 +14,19 @@
 
     </div>
 
-    &nbsp;&nbsp;&nbsp;<a href="{{ route('gerencia.new') }}"><button class="btn btn-primary">Registrar</button></a>
+    &nbsp;&nbsp;&nbsp;<a href="{{ route('departamento.new') }}"><button class="btn btn-primary">Registrar</button></a>
 
     <div style="padding: 2em;">
-        <table id="management-table" class="table table-striped table-sm">
+        <table id="department-table" class="table table-striped table-sm">
             <thead>
                 <th>
                     id
                 </th>
                 <th>
-                    Gerencia
+                    Departamento
                 </th>
                 <th>
-                    Institución
+                    Gerencia
                 </th>
                 <th>
                     Acción

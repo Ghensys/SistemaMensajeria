@@ -25,7 +25,7 @@
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 							<li><a href="/usuario">Usuarios</a></li>
 						    <li><a href="/gerencia">Gerencias</a></li>
-						    <li><a href="#">Departamentos</a></li>
+						    <li><a href="/departamento">Departamentos</a></li>
 						</ul>
 					</li>
 			  	@endif

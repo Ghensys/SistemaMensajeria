@@ -63,9 +63,6 @@ class ManagementController extends Controller
             ->addColumn('action', function ($management) {
                 return '<a href="/gerencia/update/'.$management->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Editar</a>';
             })
-            ->addColumn('action2', function ($management) {
-                return '<a href="/gerencia/update/'.$management->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Eliminar</a>';
-            })
             ->editColumn('id', 'ID: {{$id}}')
             //->removeColumn('password')
             ->make(true);

@@ -120,6 +120,7 @@
 
     <script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
 
+    <!Datatable Usuarios>
     <script>
         $(function() {
             $('#users-table').DataTable({
@@ -141,6 +142,7 @@
         });
     </script>
 
+    <!Datatable Gerencias>
     <script>
         $(function() {
             $('#management-table').DataTable({
@@ -151,9 +153,24 @@
                     { data: 'id', name: 'id' },
                     { data: 'description_management', name: 'description_management' },
                     { data: 'institution.description_institution', name: 'institution.description_institution' },
-                    { data: 'action', name: 'action', orderable: false, searchable: false },
-                    { data: 'action2', name:'action2', orderable: false, searchable: false }
+                    { data: 'action', name: 'action', orderable: false, searchable: false }
+                ]
+            });
+        });
+    </script>
 
+    <!Datatable Departamentos>
+    <script>
+        $(function() {
+            $('#department-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('departamento.getDepartments') }}",
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'description_department', name: 'description_department' },
+                    { data: 'management.description_management', name: 'management.description_management' },
+                    { data: 'action', name: 'action', orderable: false, searchable: false }
                 ]
             });
         });
