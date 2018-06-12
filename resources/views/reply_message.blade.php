@@ -38,7 +38,7 @@
         </table>
         <hr>
         
-        <form action="{{ url('reply_message') }}" method="post" accept-charset="utf-8">
+        <form action="{{ url('reply_message') }}" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 
             {{ csrf_field() }}
         

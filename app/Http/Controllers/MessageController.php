@@ -7,6 +7,7 @@ use App\CommunicationReceiver;
 use App\Communication;
 use Carbon\Carbon;
 use View;
+use Storage;
 use App\Http\Controllers\Auth;
 
 class MessageController extends Controller
@@ -131,7 +132,7 @@ class MessageController extends Controller
 
         return redirect()->route('ver_mensaje', $communication->id);
         
-        dd($request->all());
+        //dd($request->all());
 
         //foreach ($request->last_message as $key => $value) { echo $key." $value<br>"; }
     }

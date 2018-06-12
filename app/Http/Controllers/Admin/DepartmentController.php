@@ -81,22 +81,18 @@ class DepartmentController extends Controller
         //dd($request->all());
         $this->validate($request, [
             'id' => 'required|exists:departments,id',
-            'description_department' => 'required|string|max:25|unique:managements.description_department',
-            'management_id' => 'required|exists:managements.id',
+            'description_department' => 'required|string|max:25|unique:departments,description_department',
+            'management_id' => 'required|exists:managements,id',
             ]);
 
         $update = Department::find($request->id);
-
-        echo $update;
-
-        /*$update = Department::find($request->id);
         $update->description_department = $request->description_department;
-        $update->management_id = $request->management_id;*/
+        $update->management_id = $request->management_id;
 
-        //$update->save();
+        $update->save();
 
         //return view('departments.index');
-        //return view() redirect(route('departmento.index'));
+        return redirect(route('departamento.index'));
 
     }
 }

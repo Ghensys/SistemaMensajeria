@@ -81,7 +81,7 @@ class ManagementController extends Controller
 
         $this->validate($request, [
             'id' => 'required|exists:managements,id',
-            'description_management' => 'required|string|max:25|unique:managements.description_management',
+            'description_management' => 'required|string|max:25|unique:managements,description_management',
             ]);
 
         $update = Management::find($request->id);

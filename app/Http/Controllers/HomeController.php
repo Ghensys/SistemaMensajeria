@@ -87,7 +87,7 @@ class HomeController extends Controller
         $communication_receiver->priority_id = 0;
         $communication_receiver->save();
 
-        return redirect('home');
+        return redirect('bandeja_entrada');
 
     }
 }
