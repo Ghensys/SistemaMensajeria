@@ -19,4 +19,9 @@ class CommunicationType extends Model
     {
         return $this->hasMany('App\CommunicationType');
     }
+
+    public function replies()
+    {
+        return $this->hasMany('App\Reply');
+    }
 }

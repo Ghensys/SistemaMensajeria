@@ -50,7 +50,9 @@ Route::get('/nuevo_mensaje', 'HomeController@getNewCommunication')->name('nuevo_
 //Nueva Comunicacion (Nuevo mensaje) METHODO POST Registro de la primera parte del formulario
 Route::post('/nuevo_mensaje', 'HomeController@postNewCommunication')->name('nuevo_mensaje');
 
-//Grupo de rutas protegidas por el middleware de administrador
+/*
+ *Grupo de rutas protegidas por el middleware de administrador
+ */
 Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
 {
 	/*
@@ -112,6 +114,28 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function()
     
     //Ruta donde hace la actualizacion
     Route::post('/departamento/update', 'DepartmentController@postUpdateDepartment');
+
+    /*
+     * --------------------------------------------------
+     * Tipo de Mensaje
+     */
+    //Ruta del index
+    Route::get('/tipo_mensaje', 'CommunicationTypeController@index')->name('tipo_mensaje.index');
+    
+    //Ruta desde la cual llama la data.
+    Route::get('/tipo_mensaje/getCommunicationType', 'CommunicationTypeController@getCommunicationType')->name('tipo_mensaje.getCommunicationType');
+
+    //Ruta para la vista con el formulario de registro del tipo de mensaje
+    Route::get('/tipo_mensaje/new', 'CommunicationTypeController@getFormNewCommunicationTypes')->name('tipo_mensaje.new');
+
+    //Carga de la tipo de mensaje
+    Route::post('/tipo_mensaje/new', 'CommunicationTypeController@create');
+    
+    //Ruta donde trae la data del tipo de mensaje
+    Route::get('/tipo_mensaje/update/{id}', 'CommunicationTypeController@getUpdate');
+    
+    //Ruta donde hace la actualizacion
+    Route::post('/tipo_mensaje/update', 'CommunicationTypeController@postUpdateCommunicationType');
 });
 
 //Ruta para el Registro del Destinatario de la Comunicacion

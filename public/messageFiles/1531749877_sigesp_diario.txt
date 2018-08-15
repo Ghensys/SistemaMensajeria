@@ -1,0 +1,35 @@
+### Se Aplican  los Permisos para el Backup
+mkdir  /home/respaldos/sigesp/bd/sigesp_$(date +%d_%m_%Y)/
+chmod -R 777  /home/respaldos/sigesp/bd/sigesp_$(date +%d_%m_%Y)
+
+### Inicio del Backup sigesp (BD)
+touch /home/respaldos/sigesp/bd/sigesp_$(date +%d_%m_%Y)/db_conapdis_2017_$(date +%d_%m_%Y).sql
+if /usr/bin/pg_dump -h 192.168.2.5 -U postgres -d db_conapdis_2017 > /home/respaldos/sigesp/bd/sigesp_$(date +%d_%m_%Y)/db_conapdis_2017_$(date +%d_%m_%Y))_$(date +%H).sql;
+
+then
+        date +%d_%m_%Y_%H:%M:%S' Se Realizo el Respaldo db_conapdis_2017 (BD)' >> /home/respaldos/sigesp.txt
+#        /bin/sh /home/siga/correo.sh
+else
+        date +%d_%m_%Y_%H:%M:%S' No se Realizo el Respaldo db_conapdis_2017 (BD)' >> /home/respaldos/sigesp.txt
+#        /bin/sh /home/siga/correo.sh
+fi
+touch /home/respaldos/sigesp/bd/sigesp_$(date +%d_%m_%Y)/db_conapdis_2018_$(date +%d_%m_%Y).sql
+if /usr/bin/pg_dump -h 192.168.2.5 -U postgres -d db_conapdis_2018 > /home/respaldos/sigesp/bd/sigesp_$(date +%d_%m_%Y)/db_conapdis_2018_$(date +%d_%m_%Y)_$(date +%H).sql;
+
+then
+        date +%d_%m_%Y_%H:%M:%S' Se Realizo el Respaldo db_conapdis_2018 (BD)' >> /home/respaldos/sigesp.txt
+#        /bin/sh /home/siga/correo.sh
+else
+        date +%d_%m_%Y_%H:%M:%S' No se Realizo el Respaldo db_conapdis_2018 (BD)' >> /home/respaldos/sigesp.txt
+#        /bin/sh /home/siga/correo.sh
+fi
+touch /home/respaldos/sigesp/bd/sigesp_$(date +%d_%m_%Y)/dg_utilidades_$(date +%d_%m_%Y).sql
+if /usr/bin/pg_dump -h 192.168.2.5 -U postgres -d dg_utilidades > /home/respaldos/sigesp/bd/sigesp_$(date +%d_%m_%Y)/dg_utilidades_$(date +%d_%m_%Y)_$(date +%H).sql;
+
+then
+        date +%d_%m_%Y_%H:%M:%S' Se Realizo el Respaldo dg_utilidades (BD)' >> /home/respaldos/sigesp.txt
+#        /bin/sh /home/siga/correo.sh
+else
+        date +%d_%m_%Y_%H:%M:%S' No se Realizo el Respaldo dg_utilidades (BD)' >> /home/respaldos/sigesp.txt
+#        /bin/sh /home/siga/correo.sh
+fi

@@ -176,6 +176,22 @@
         });
     </script>
 
+    <!Datatable Tipos de Mensaje>
+    <script>
+        $(function() {
+            $('#communication-type-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('tipo_mensaje.getCommunicationType') }}",
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'description_communication_type', name: 'description_communication_type' },
+                    { data: 'action', name: 'action', orderable: false, searchable: false }
+                ]
+            });
+        });
+    </script>
+
 
 </body>
 </html>

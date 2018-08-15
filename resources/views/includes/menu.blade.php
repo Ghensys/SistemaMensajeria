@@ -26,6 +26,7 @@
 							<li><a href="/usuario">Usuarios</a></li>
 						    <li><a href="/gerencia">Gerencias</a></li>
 						    <li><a href="/departamento">Departamentos</a></li>
+						    <li><a href="/tipo_mensaje">Tipos de Mensaje</a></li>
 						</ul>
 					</li>
 			  	@endif
