@@ -84,7 +84,7 @@ class HomeController extends Controller
         }
 
         $communication_receiver->status_communication_id = 1;
-        $communication_receiver->priority_id = 0;
+        $communication_receiver->priority_id = 1;
         $communication_receiver->save();
 
         return redirect('bandeja_entrada');

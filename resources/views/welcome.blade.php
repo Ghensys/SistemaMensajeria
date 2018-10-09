@@ -80,7 +80,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Sistema de Mensajeria Conapdis
+                    Sistema de Mensajería
                 </div>
             </div>
         </div>
