@@ -88,6 +88,7 @@ class MessageController extends Controller
             $update->status_communication_id = 4;
             $update->save();
         }
+        //return $comm;
         return view('message')->with(compact('comm'));
     }
 

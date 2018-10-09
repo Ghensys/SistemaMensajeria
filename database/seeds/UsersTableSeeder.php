@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
             'institution_id' => '1',
             'management_id' => '1',
             'department_id' => '1',
-            'role_id' => 0,
+            'role_id' => 1,
         	));
 
         User::create(array(
@@ -34,7 +34,7 @@ class UsersTableSeeder extends Seeder
             'institution_id' => '1',
             'management_id' => '1',
             'department_id' => '1',
-            'role_id' => 0,
+            'role_id' => 1,
             ));
 
         User::create(array(
@@ -44,7 +44,7 @@ class UsersTableSeeder extends Seeder
             'institution_id' => '1',
             'management_id' => '1',
             'department_id' => '1',
-            'role_id' => 0,
+            'role_id' => 1,
             ));
 
         User::create(array(
@@ -54,7 +54,7 @@ class UsersTableSeeder extends Seeder
             'institution_id' => '1',
             'management_id' => '1',
             'department_id' => '1',
-            'role_id' => 0,
+            'role_id' => 1,
             ));
 
         User::create(array(
@@ -64,7 +64,7 @@ class UsersTableSeeder extends Seeder
             'institution_id' => '1',
             'management_id' => '1',
             'department_id' => '1',
-            'role_id' => 0,
+            'role_id' => 1,
             ));
 
         User::create(array(
@@ -74,7 +74,7 @@ class UsersTableSeeder extends Seeder
             'institution_id' => '1',
             'management_id' => '1',
             'department_id' => '1',
-            'role_id' => 0,
+            'role_id' => 1,
             ));
 
         User::create(array(
@@ -84,7 +84,7 @@ class UsersTableSeeder extends Seeder
             'institution_id' => '1',
             'management_id' => '1',
             'department_id' => '1',
-            'role_id' => 0,
+            'role_id' => 1,
             ));
 
         User::create(array(
@@ -94,7 +94,7 @@ class UsersTableSeeder extends Seeder
             'institution_id' => '1',
             'management_id' => '1',
             'department_id' => '1',
-            'role_id' => 0,
+            'role_id' => 1,
             ));
        
     }

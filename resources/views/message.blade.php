@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="panel panel-primary">
-    <div class="panel-heading"> Mensaje - {{ $data[0]->title }} </div>
+    <div class="panel-heading"> Mensaje - {{ $comm[0]->title }} </div>
 
     <div class="panel-body">
         @if (session('status'))
@@ -16,22 +16,22 @@
             <tbody>
                 <tr>
                     <td>
-                        Tipo de Mensaje: {{ $data[0]->communication_type['description_communication_type'] }}
+                        Tipo de Mensaje: {{ $comm[0]->communication_type['description_communication_type'] }}
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        De: {{ $data[0]->user['name'] }}
+                        De: {{ $comm[0]->user['name'] }}
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Asunto: {{ $data[0]->title }}
+                        Asunto: {{ $comm[0]->title }}
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Fecha de Recepcion: {{ $data[0]->created_at }} &nbsp;&nbsp;&nbsp; Estado: {{ $data[0]->status_communication['description_status_communication'] }}
+                        Fecha de Recepcion: {{ $comm[0]->created_at }} &nbsp;&nbsp;&nbsp; Estado: {{ $comm[0]->status_communication['description_status_communication'] }}
                     </td>
                 </tr>
             </tbody>
@@ -71,7 +71,7 @@
             </tbody>
         </table>
 
-        @if($comm[$i]->user['id'] != auth()->user()->id)
+        @if($comm[0]->user['id'] != auth()->user()->id)
 
             <table class="table">
                     
@@ -81,7 +81,7 @@
                         @if($i != 1)
 
                             <td>
-                                <a href="/responder_mensaje/{{ $data[0]->id }}" class="btn btn-primary">Responder Mensaje</a>
+                                <a href="/responder_mensaje/{{ $comm[0]->id }}" class="btn btn-primary">Responder Mensaje</a>
                             </td>
                             
                         @endif
